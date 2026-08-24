@@ -1,24 +1,33 @@
 ---
-// Footer Componet
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-100 border-t border-gray-200 py-6 mt-12">
-  <!-- Footer bottom row -->
-<div class="border-t border-gray-100 pt-6 mt-8 text-center text-xs text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-2">
-  <p>&copy; {new Date().getFullYear()} Qutiqled Beauti Studio. All rights reserved.</p>
-  
-  <p class="text-gray-400">
-    Designed & Powered by 
-    <a 
-      href="https://escatega.com" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      class="font-medium text-gray-600 hover:text-gray-900 transition-colors underline underline-offset-2"
-    >
-      ESCATEGA
-    </a>
-  </p>
-</div>
+<footer class="w-full border-t border-slate-200 bg-slate-50 py-8 mt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      
+      <!-- Copyright -->
+      <p class="text-xs font-medium text-slate-500">
+        &copy; {currentYear} <span class="font-semibold text-slate-700">Qutiqled Beauti Studio</span>. All rights reserved.
+      </p>
+
+      <!-- Agency Badge -->
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-slate-400 font-medium">Digital Architecture by</span>
+        <a 
+          href="https://escatega.com" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 hover:bg-black text-white text-xs font-semibold tracking-wide transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 border border-slate-800"
+        >
+          <span>ESCATEGA</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="7 17 17 7 17 17"></polyline>
+            <polyline points="7 7 17 7"></polyline>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
 </footer>
-
-
