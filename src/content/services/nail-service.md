@@ -1,0 +1,8 @@
+---
+name: Nail Service
+price: '100'
+duration: 60min
+badge: Deal
+category: Hands
+description: Come and give yourself a gift and treat you like a queen
+---
