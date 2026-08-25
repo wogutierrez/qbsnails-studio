@@ -5,75 +5,16 @@ import { getCollection } from "astro:content";
 
 const serviceEntries = await getCollection("services");
 
-const services = [
-  {
-    name: "Classic Harare Manicure",
-    price: "$25 USD",
-    duration: "45 mins",
-    category: "Hands",
-    description:
-      "Nail shaping, precision cuticle treatment, hand massage using local botanical oils, and long-lasting regular polish.",
-    image: {
-      url: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80",
-      alt: "Classic Manicure",
-    },
-  },
-  {
-    name: "Tafadzwa's Signature Gel Overlay",
-    price: "$45 USD",
-    duration: "60 mins",
-    badge: "Most Popular",
-    category: "Hands",
-    description:
-      "High-shine LED cured gel overlay designed by Tafadzwa Shiripinda for natural nail growth, structure reinforcement, and flawless 3+ week durability.",
-    image: {
-      url: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80",
-      alt: "Signature Gel Overlay",
-    },
-  },
-  {
-    name: "Avondale Luxury Spa Pedicure",
-    price: "$55 USD",
-    duration: "75 mins",
-    badge: "Client Favorite",
-    category: "Feet",
-    description:
-      "Warm mineral foot bath, eucalyptus scrub exfoliation, full nail grooming, calloused heel repair, and deep hydration massage.",
-    image: {
-      url: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80",
-      alt: "Luxury Pedicure",
-    },
-  },
-  {
-    name: "Custom Hand-Painted Nail Art",
-    price: "$15+ USD",
-    duration: "30+ mins",
-    badge: "Artisan",
-    category: "Art",
-    description:
-      "Intricate floral lines, geometric patterns, gold leaf encapsulation, 3D charms, or custom chrome powders.",
-    image: null,
-  },
-  {
-    name: "Polygel Sculpted Extensions",
-    price: "$65 USD",
-    duration: "90 mins",
-    category: "Extensions",
-    description:
-      "Full set of feather-light sculpted polygel extensions customized to your desired length and shape (Almond, Coffin, Stiletto, Square).",
-    image: null,
-  },
-  {
-    name: "Bridal Party Beauty Package",
-    price: "$180 USD",
-    duration: "3 Hours",
-    badge: "VIP Group",
-    category: "Packages",
-    description:
-      "Exclusive pampering for bride + 3 bridesmaids including complimentary champagne, gel manicures, express pedicures, and custom nail art consultation.",
-    image: null,
-  },
-];
+const services = serviceEntries.map((entry) => ({
+  name: entry.data.name,
+  price: entry.data.price,
+  duration: entry.data.duration,
+  badge: entry.data.badge,
+  category: entry.data.category,
+  description: entry.data.description,
+  image: entry.data.image || null,
+}));
+
 
 const reviews = [
   {
