@@ -12,7 +12,13 @@ const services = serviceEntries.map((entry) => ({
   badge: entry.data.badge,
   category: entry.data.category,
   description: entry.data.description,
-  image: entry.data.image || null,
+  // Wrap the uploaded image string into the URL/alt object format:
+  image: entry.data.image
+    ? {
+        url: entry.data.image,
+        alt: entry.data.name,
+      }
+    : null,
 }));
 
 
