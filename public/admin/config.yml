@@ -40,6 +40,6 @@ collections:
           label: "Service Image", 
           name: "image", 
           widget: "image", 
-          required: false,
+          required: true,
           media_library: { config: { multiple: false } }
         }
