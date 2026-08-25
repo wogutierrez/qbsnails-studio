@@ -9,7 +9,8 @@ const services = defineCollection({
     duration: z.string().optional(),
     badge: z.string().optional(),
     category: z.string().optional(),
-    description: z.string().optional()
+    description: z.string().optional(),
+    image: z.string() // <-- ADD THIS LINE HERE
   })
 });
 
