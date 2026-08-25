@@ -2,6 +2,7 @@ backend:
   name: github
   repo: qbsnails/qbsnails-studio
   branch: main
+  auth_methods: [token]
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
