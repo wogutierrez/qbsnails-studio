@@ -2,7 +2,7 @@ backend:
   name: github
   repo: qbsnails/qbsnails-studio
   branch: main
-  base_url: https://sveltia-cms-auth.pages.dev
+  base_url: sveltia-cms-auth.wogutierrez.workers.dev
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
