@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: qbsnails/qbsnails-studio
+  repo: wogutierrez/qbsnails-studio
   branch: main
   base_url: https://sveltia-cms-auth.wogutierrez.workers.dev
 
