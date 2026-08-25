@@ -36,3 +36,10 @@ collections:
           widget: "text",
           required: false
         }
+        - { 
+          label: "Service Image", 
+          name: "image", 
+          widget: "image", 
+          required: false,
+          media_library: { config: { multiple: false } }
+        }
