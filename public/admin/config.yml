@@ -43,3 +43,16 @@ collections:
           required: true,
           media_library: { config: { multiple: false } }
         }
+        
+  - name: "reviews"
+      label: "Client Reviews"
+      folder: "src/content/reviews"
+      create: true
+      slug: "{{slug}}"
+      fields:
+        - { label: "Client Name", name: "name", widget: "string" }
+        - { label: "Suburb / Location", name: "suburb", widget: "string", required: false }
+        - { label: "Review Text", name: "text", widget: "text" }
+        - { label: "Rating (1-5)", name: "rating", widget: "number", value_type: "int", default: 5, min: 1, max: 5, required: false }
+
+        
