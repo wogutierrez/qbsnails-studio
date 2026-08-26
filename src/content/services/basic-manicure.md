@@ -1,6 +1,6 @@
 ---
 name: Basic Manicure
-price: US5
+price: US5.00
 duration: 15min
 badge: New
 category: Hands
