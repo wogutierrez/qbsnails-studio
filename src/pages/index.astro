@@ -3,10 +3,12 @@ import Layout from "../layouts/layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 
 import { getCollection } from "astro:content";
+
+
+// 1. Fetch live services from CMS
 const allServices = await getCollection("services");
 
-// I AM HERE
-
+// 2. Filter for services matching your badges
 const allowedBadges = ["Featured", "Most Popular", "Client Favorite", "Artisan"];
 
 const featuredEntries = allServices.filter((entry) => {
@@ -14,48 +16,26 @@ const featuredEntries = allServices.filter((entry) => {
   return badge && allowedBadges.includes(badge);
 })
 
+// Fallback: If no badges match, take the first 3
+const displayEntries = featuredEntries.length > 0 ? featuredEntries : allServices.slice(0, 3);
 
+// 3. Format images for ServiceCard
+const services = displayEntries.map((entry) => ({
+  name: entry.data.name,
+  price: entry.data.price,
+  duration: entry.data.duration,
+  badge: entry.data.badge,
+  category: entry.data.category,
+  description: entry.data.description,
+  image: entry.data.image
+    ? {
+        url: entry.data.image,
+        alt: entry.data.name,
+      }
+    : null,
+}));
 
 // Highlighted featured services for the home page
-const featuredServices = [
-  {
-    name: "Tafadzwa's Signature Gel Overlay",
-    price: "$45 USD",
-    duration: "60 mins",
-    badge: "Most Popular",
-    category: "Hands",
-    description:
-      "High-shine LED cured gel overlay designed for natural nail growth, structure reinforcement, and 3+ week durability.",
-    image: {
-      url: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80",
-      alt: "Signature Gel Overlay",
-    },
-  },
-  {
-    name: "Avondale Luxury Spa Pedicure",
-    price: "$55 USD",
-    duration: "75 mins",
-    badge: "Client Favorite",
-    category: "Feet",
-    description:
-      "Warm mineral foot bath, eucalyptus scrub exfoliation, full nail grooming, and deep hydration massage.",
-    image: {
-      url: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80",
-      alt: "Luxury Pedicure",
-    },
-  },
-  {
-    name: "Custom Hand-Painted Nail Art",
-    price: "$15+ USD",
-    duration: "30+ mins",
-    badge: "Artisan",
-    category: "Art",
-    description:
-      "Intricate floral lines, geometric patterns, gold leaf encapsulation, 3D charms, or custom chrome powders.",
-    image: null,
-  },
-];
-
 const highlights = [
   {
     icon: "🌿",
@@ -192,7 +172,7 @@ const highlights = [
 
       <div class="grid md:grid-cols-3 gap-8">
         {
-          featuredServices.map((service) => (
+          services.map((service) => (
             <ServiceCard
               name={service.name}
               price={service.price}
