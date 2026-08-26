@@ -5,7 +5,12 @@ import ServiceCard from "../components/ServiceCard.astro";
 import { getCollection } from "astro:content";
 const allServices = await getCollection("services");
 
+const allowedBadges = ["Featured", "Most Popular", "Client Favorite", "Artisan"];
 
+const featuredEntries = allServices.filter((entry) => {
+  const badge = entry.data.badge;
+  return badge && allowedBadges.includes(badge);
+})
 
 // Highlighted featured services for the home page
 const featuredServices = [
