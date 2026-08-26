@@ -14,4 +14,16 @@ const services = defineCollection({
   })
 });
 
-export const collections = { services };
+// 2. Reviews Collection Definition
+const reviews = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/reviews" }),
+  schema: z.object({
+    name: z.string(),
+    suburb: z.string().optional(),
+    text: z.string(),
+    rating: z.number().default(5).optional()
+  })
+});
+
+// 3. Export both collections for Astro's Content Engine
+export const collections = { services, reviews };
