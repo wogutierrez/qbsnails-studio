@@ -2,6 +2,11 @@
 import Layout from "../layouts/layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 
+import { getCollection } from "astro:content";
+const allServices = await getCollection("services");
+
+
+
 // Highlighted featured services for the home page
 const featuredServices = [
   {
