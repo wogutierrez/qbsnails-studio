@@ -1,56 +1,37 @@
 ---
 import ServiceCard from "./ServiceCard.astro";
 
-// Accept the services array passed from pages
 const { services = [] } = Astro.props;
 
-/ Extract unique categories dynamically from the services data
-const categories = ["All", ...new Set(services.map((s) => s.category).filter(Boolean))];
+const rawCategories = services.map((s) => s.category).filter(Boolean);
+const categories = ["All", ...Array.from(new Set(rawCategories))];
 ---
 
 <div class="service-filter-wrapper">
-  {/* -------------------------------------------------------------------------- */}
-  {/* SECTION 1: CATEGORY FILTER BUTTONS                                         */}
-  {/* -------------------------------------------------------------------------- */}
+  {/* CATEGORY FILTER BUTTONS */}
   <div class="flex flex-wrap justify-center gap-2 mb-8">
     {
-      /* Loop through our dynamic categories array (e.g. ["All", "Hands", "Feet"]) */
       categories.map((cat, index) => (
         <button
           type="button"
-          /* Stash the category name in a HTML data attribute so JavaScript can read it */
           data-filter={cat}
-          /* 
-            Set CSS classes:
-            If index === 0 ("All"), make it active with a pink background and white text.
-            Otherwise, give it a subtle gray background with hover effects.
-          */
           class={`filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all ${
             index === 0
               ? "active bg-rose-600 text-white shadow-md"
               : "bg-gray-100 text-gray-600 hover:bg-rose-100 hover:text-rose-600"
           }`}
         >
-          {/* Display the button label text */}
           {cat}
         </button>
       ))
     }
   </div>
 
-  {/* -------------------------------------------------------------------------- */}
-  {/* SECTION 2: SERVICE CARDS GRID                                             */}
-  {/* -------------------------------------------------------------------------- */}
+  {/* SERVICE CARDS GRID */}
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     {
-      /* Loop through every service entry passed into this component */
       services.map((service) => (
-        /* 
-          Wrap each card in a div with a data-category attribute.
-          This tag allows our client script to quickly check: "Is this card a 'Hands' service?"
-        */
         <div class="service-card-item" data-category={service.category}>
-          {/* Render your existing ServiceCard component with its props */}
           <ServiceCard
             name={service.name}
             price={service.price}
@@ -66,44 +47,29 @@ const categories = ["All", ...new Set(services.map((s) => s.category).filter(Boo
   </div>
 </div>
 
-
-<!-- ----------------------------------------------------------------------- -->
-<!-- CLIENT SCRIPT (Runs in the browser to handle click events)               -->
-<!-- ----------------------------------------------------------------------- -->
 <script>
-  // Function to initialize interactive filtering logic
   function setupFilter() {
-    // Select all filter buttons and card wrapper elements from the document
     const filterBtns = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
     const cardItems = document.querySelectorAll<HTMLElement>(".service-card-item");
 
-    // Loop through each button to add a click event listener
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
-        // Read the category value stored in the clicked button's data-filter attribute
         const selectedCategory = btn.dataset.filter;
 
-        // --- STEP A: RESET & UPDATE BUTTON STYLES ---
-        // 1. Reset all buttons back to the default gray state
         filterBtns.forEach((b) => {
           b.classList.remove("active", "bg-rose-600", "text-white", "shadow-md");
           b.classList.add("bg-gray-100", "text-gray-600");
         });
 
-        // 2. Highlight ONLY the clicked button in pink
         btn.classList.add("active", "bg-rose-600", "text-white", "shadow-md");
         btn.classList.remove("bg-gray-100", "text-gray-600");
 
-        // --- STEP B: FILTER SERVICE CARDS ---
         cardItems.forEach((card) => {
-          // Read the card's category stored in data-category
           const cardCategory = card.dataset.category;
 
-          // If "All" is selected OR the card category matches the selected button category, show it
           if (selectedCategory === "All" || cardCategory === selectedCategory) {
             card.style.display = "block";
           } else {
-            // Otherwise hide the card from view
             card.style.display = "none";
           }
         });
@@ -111,6 +77,9 @@ const categories = ["All", ...new Set(services.map((s) => s.category).filter(Boo
     });
   }
 
-  // Execute the filter setup when the page loads
+  // Execute on initial page load
   setupFilter();
+
+  // Re-run if using Astro view transitions
+  document.addEventListener("astro:page-load", setupFilter);
 </script>
