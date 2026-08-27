@@ -7,9 +7,9 @@ const rawCategories = services.map((s) => s.category).filter(Boolean);
 const categories = ["All", ...Array.from(new Set(rawCategories))];
 ---
 
-<div class="service-filter-wrapper">
+<div class="service-filter-wrapper w-full">
   {/* CATEGORY FILTER BUTTONS */}
- <div class="flex flex-wrap justify-end gap-2 mb-8">
+  <div class="flex flex-wrap justify-end items-center w-full gap-2 mb-8">
     {
       categories.map((cat, index) => (
         <button
@@ -28,7 +28,7 @@ const categories = ["All", ...Array.from(new Set(rawCategories))];
   </div>
 
   {/* SERVICE CARDS GRID */}
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
     {
       services.map((service) => (
         <div class="service-card-item" data-category={service.category}>
@@ -77,9 +77,6 @@ const categories = ["All", ...Array.from(new Set(rawCategories))];
     });
   }
 
-  // Execute on initial page load
   setupFilter();
-
-  // Re-run if using Astro view transitions
   document.addEventListener("astro:page-load", setupFilter);
 </script>
