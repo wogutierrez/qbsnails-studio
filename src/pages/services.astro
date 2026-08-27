@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/layout.astro";
-import ServiceCard from "../components/ServiceCard.astro";
+import ServiceFilterGrid from "../components/ServiceFilterGrid.astro";
 import { getCollection } from "astro:content";
+
 
 const serviceEntries = await getCollection("services");
 
