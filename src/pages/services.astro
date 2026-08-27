@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/layout.astro";
 import ServiceFilterGrid from "../components/ServiceFilterGrid.astro";
+import ServiceCard from "../components/ServiceCard.astro";
 import { getCollection } from "astro:content";
-
 
 const serviceEntries = await getCollection("services");
 
@@ -13,7 +13,6 @@ const services = serviceEntries.map((entry) => ({
   badge: entry.data.badge,
   category: entry.data.category,
   description: entry.data.description,
-  // Wrap the uploaded image string into the URL/alt object format:
   image: entry.data.image
     ? {
         url: entry.data.image,
@@ -22,7 +21,7 @@ const services = serviceEntries.map((entry) => ({
     : null,
 }));
 
-// 2. FETCH LIVE REVIEWS FROM CMS (Replaces old hardcoded array!)
+// Fetch live reviews from content collection
 const reviewEntries = await getCollection("reviews");
 
 const reviews = reviewEntries.map((entry) => ({
@@ -31,7 +30,6 @@ const reviews = reviewEntries.map((entry) => ({
   text: entry.data.text,
   rating: entry.data.rating || 5,
 }));
-
 ---
 
 <Layout title="Services & Menu | Qutiqled Beauty Studio Harare">
@@ -63,7 +61,7 @@ const reviews = reviewEntries.map((entry) => ({
         class="mb-16 bg-gradient-to-r from-slate-900 to-rose-950 text-white rounded-3xl p-8 md:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-rose-900/40"
       >
         <div
-          class="w-32 h-32 md:w-40 md:w-40 rounded-full bg-rose-200/20 border-4 border-rose-400 overflow-hidden flex-shrink-0 flex items-center justify-center text-4xl font-bold text-rose-300 shadow-inner"
+          class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-rose-200/20 border-4 border-rose-400 overflow-hidden flex-shrink-0 flex items-center justify-center text-4xl font-bold text-rose-300 shadow-inner"
         >
           TS
         </div>
@@ -96,43 +94,17 @@ const reviews = reviewEntries.map((entry) => ({
         </div>
       </div>
 
-      {/* Category Header */}
-      <div
-        class="flex flex-col md:flex-row justify-between items-center mb-8 border-b border-gray-200 pb-4"
-      >
-        <div>
-          
-        {/* Dynamic Treatment & Art Menu with Interactive Filtering */}
-          <div class="mb-20">
-            <div class="text-center md:text-left mb-8 border-b border-gray-200 pb-4">
-              <h2 class="text-2xl font-bold text-gray-900">Treatment & Art Menu</h2>
-              <p class="text-sm text-gray-500">
-                All prices payable in USD / ZiG equivalent at daily official rate
-              </p>
-            </div>
+      {/* Treatment & Art Menu with Interactive Filtering */}
+      <div class="mb-20">
+        <div class="text-center md:text-left mb-8 border-b border-gray-200 pb-4">
+          <h2 class="text-2xl font-bold text-gray-900">Treatment & Art Menu</h2>
+          <p class="text-sm text-gray-500">
+            All prices payable in USD / ZiG equivalent at daily official rate
+          </p>
+        </div>
 
-            {/* Interactive Astro Island Grid */}
-            <ServiceFilterGrid services={services} />
-          </div>
-
-                  </div>
-                </div>
-
-                {/* Grid of Refined Cards */}
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-                  {
-                    services.map((service) => (
-                      <ServiceCard
-                        name={service.name}
-                        price={service.price}
-                        duration={service.duration}
-                        badge={service.badge}
-                        category={service.category}
-                        description={service.description}
-                        image={service.image}
-                      />
-                    ))
-                  }
+        {/* Dynamic Service Grid */}
+        <ServiceFilterGrid services={services} />
       </div>
 
       {/* Studio Hours & Booking Policies Grid */}
@@ -198,28 +170,27 @@ const reviews = reviewEntries.map((entry) => ({
         <div class="grid md:grid-cols-2 gap-6">
           {
             reviews.map((rev) => (
-      <div class="bg-rose-50/50 p-6 rounded-2xl border border-rose-100 flex flex-col justify-between">
-        <div>
-          {/* Star Rating Output */}
-          <div class="flex text-amber-400 mb-2 text-xs">
-            {Array.from({ length: rev.rating }).map(() => (
-              <span>★</span>
-            ))}
-          </div>
-          <p class="mb-4 text-sm leading-relaxed italic text-gray-700">
-            "{rev.text}"
-          </p>
-        </div>
-        <div class="font-bold text-sm text-gray-900 pt-2 border-t border-rose-100/60">
-          — {rev.name}
-          {rev.suburb && (
-            <span class="text-rose-600 font-normal text-xs ml-1">
-              ({rev.suburb})
-            </span>
-          )}
-        </div>
-      </div>
-    ))
+              <div class="bg-rose-50/50 p-6 rounded-2xl border border-rose-100 flex flex-col justify-between">
+                <div>
+                  <div class="flex text-amber-400 mb-2 text-xs">
+                    {Array.from({ length: rev.rating }).map(() => (
+                      <span>★</span>
+                    ))}
+                  </div>
+                  <p class="mb-4 text-sm leading-relaxed italic text-gray-700">
+                    "{rev.text}"
+                  </p>
+                </div>
+                <div class="font-bold text-sm text-gray-900 pt-2 border-t border-rose-100/60">
+                  — {rev.name}
+                  {rev.suburb && (
+                    <span class="text-rose-600 font-normal text-xs ml-1">
+                      ({rev.suburb})
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))
           }
         </div>
       </div>
