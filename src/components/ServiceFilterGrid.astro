@@ -58,11 +58,11 @@ const categories = ["All", ...Array.from(new Set(rawCategories))];
 
         filterBtns.forEach((b) => {
           b.classList.remove("active", "bg-rose-600", "text-white", "shadow-md");
-          b.classList.add("bg-gray-100", "text-gray-600");
+          b.classList.add("bg-gray-100", "text-gray-600", "hover:bg-rose-100", "hover:text-rose-600");
         });
 
         btn.classList.add("active", "bg-rose-600", "text-white", "shadow-md");
-        btn.classList.remove("bg-gray-100", "text-gray-600");
+        btn.classList.remove("bg-gray-100", "text-gray-600", "hover:bg-rose-100", "hover:text-rose-600");
 
         cardItems.forEach((card) => {
           const cardCategory = card.dataset.category;
