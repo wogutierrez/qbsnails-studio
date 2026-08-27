@@ -101,45 +101,38 @@ const reviews = reviewEntries.map((entry) => ({
         class="flex flex-col md:flex-row justify-between items-center mb-8 border-b border-gray-200 pb-4"
       >
         <div>
-          <h2 class="text-2xl font-bold text-gray-900">Treatment & Art Menu</h2>
-          <p class="text-sm text-gray-500">
-            All prices payable in USD / ZiG equivalent at daily official rate
-          </p>
-        </div>
-        <div class="flex gap-2 mt-4 md:mt-0 text-xs font-medium">
-          <span class="px-3 py-1 rounded-full bg-rose-600 text-white"
-            >All Services</span
-          >
-          <span
-            class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 cursor-pointer"
-            >Hands</span
-          >
-          <span
-            class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 cursor-pointer"
-            >Feet</span
-          >
-          <span
-            class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 cursor-pointer"
-            >Art & Sets</span
-          >
-        </div>
-      </div>
+          
+        {/* Dynamic Treatment & Art Menu with Interactive Filtering */}
+          <div class="mb-20">
+            <div class="text-center md:text-left mb-8 border-b border-gray-200 pb-4">
+              <h2 class="text-2xl font-bold text-gray-900">Treatment & Art Menu</h2>
+              <p class="text-sm text-gray-500">
+                All prices payable in USD / ZiG equivalent at daily official rate
+              </p>
+            </div>
 
-      {/* Grid of Refined Cards */}
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-        {
-          services.map((service) => (
-            <ServiceCard
-              name={service.name}
-              price={service.price}
-              duration={service.duration}
-              badge={service.badge}
-              category={service.category}
-              description={service.description}
-              image={service.image}
-            />
-          ))
-        }
+            {/* Interactive Astro Island Grid */}
+            <ServiceFilterGrid services={services} />
+          </div>
+
+                  </div>
+                </div>
+
+                {/* Grid of Refined Cards */}
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                  {
+                    services.map((service) => (
+                      <ServiceCard
+                        name={service.name}
+                        price={service.price}
+                        duration={service.duration}
+                        badge={service.badge}
+                        category={service.category}
+                        description={service.description}
+                        image={service.image}
+                      />
+                    ))
+                  }
       </div>
 
       {/* Studio Hours & Booking Policies Grid */}
