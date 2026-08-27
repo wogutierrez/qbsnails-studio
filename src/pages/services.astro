@@ -1,85 +1,226 @@
 ---
-import ServiceCard from "./ServiceCard.astro";
+import Layout from "../layouts/Layout.astro";
+import ServiceFilterGrid from "../components/ServiceFilterGrid.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import { getCollection } from "astro:content";
 
-const { services = [] } = Astro.props;
+const serviceEntries = await getCollection("services");
 
-const rawCategories = services.map((s) => s.category).filter(Boolean);
-const categories = ["All", ...Array.from(new Set(rawCategories))];
+const services = serviceEntries.map((entry) => ({
+  name: entry.data.name,
+  price: entry.data.price,
+  duration: entry.data.duration,
+  badge: entry.data.badge,
+  category: entry.data.category,
+  description: entry.data.description,
+  image: entry.data.image
+    ? {
+        url: entry.data.image,
+        alt: entry.data.name,
+      }
+    : null,
+}));
+
+// Fetch live reviews from content collection
+const reviewEntries = await getCollection("reviews");
+
+const reviews = reviewEntries.map((entry) => ({
+  name: entry.data.name,
+  suburb: entry.data.suburb,
+  text: entry.data.text,
+  rating: entry.data.rating || 5,
+}));
 ---
 
-<div class="service-filter-wrapper">
-  {/* CATEGORY FILTER BUTTONS */}
-  <div class="flex flex-wrap justify-center gap-2 mb-8">
-    {
-      categories.map((cat, index) => (
-        <button
-          type="button"
-          data-filter={cat}
-          class={`filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all ${
-            index === 0
-              ? "active bg-rose-600 text-white shadow-md"
-              : "bg-gray-100 text-gray-600 hover:bg-rose-100 hover:text-rose-600"
-          }`}
+<Layout title="Services & Menu | Qutiqled Beauty Studio Harare">
+  <div class="bg-gradient-to-b from-rose-50/70 via-white to-gray-50 py-12">
+    <div class="container mx-auto px-4 max-w-6xl">
+      {/* Hero Studio Banner */}
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span
+          class="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-100/80 border border-rose-200 px-4 py-1.5 rounded-full inline-block mb-4"
         >
-          {cat}
-        </button>
-      ))
-    }
-  </div>
+          📍 Avondale Shopping Centre, Harare
+        </span>
+        <h1
+          class="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight"
+        >
+          Qutiqled Beauty Studio Menu
+        </h1>
+        <p class="text-gray-600 text-lg leading-relaxed">
+          Harare's home for luxury nail care, healthy natural nail restoration,
+          and bespoke hand-painted artwork led by certified Master Nail
+          Specialist <strong class="text-rose-600 font-bold"
+            >Tafadzwa Shiripinda</strong
+          >.
+        </p>
+      </div>
 
-  {/* SERVICE CARDS GRID */}
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {
-      services.map((service) => (
-        <div class="service-card-item" data-category={service.category}>
-          <ServiceCard
-            name={service.name}
-            price={service.price}
-            duration={service.duration}
-            badge={service.badge}
-            category={service.category}
-            description={service.description}
-            image={service.image}
-          />
+      {/* Lead Specialist Spotlight Card */}
+      <div
+        class="mb-16 bg-gradient-to-r from-slate-900 to-rose-950 text-white rounded-3xl p-8 md:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-8 border border-rose-900/40"
+      >
+        <div
+          class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-rose-200/20 border-4 border-rose-400 overflow-hidden flex-shrink-0 flex items-center justify-center text-4xl font-bold text-rose-300 shadow-inner"
+        >
+          TS
         </div>
-      ))
-    }
-  </div>
-</div>
+        <div>
+          <span
+            class="text-xs font-bold uppercase tracking-widest text-rose-300 bg-rose-900/50 px-3 py-1 rounded-full"
+          >
+            Lead Nail Technician & Founder
+          </span>
+          <h2 class="text-2xl md:text-3xl font-extrabold mt-2 mb-3 text-white">
+            Meet Tafadzwa Shiripinda
+          </h2>
+          <p class="text-rose-100/90 text-sm md:text-base leading-relaxed mb-4">
+            With over 8 years of specialized experience in natural nail health,
+            gel chemistry, and custom Zimbabwean artistic motifs, Tafadzwa
+            ensures every client leaves with healthy, durable, and show-stopping
+            nails.
+          </p>
+          <div class="flex flex-wrap gap-4 text-xs font-semibold text-rose-200">
+            <span class="bg-white/10 px-3 py-1 rounded-md"
+              >✨ Certified Gel Specialist</span
+            >
+            <span class="bg-white/10 px-3 py-1 rounded-md"
+              >🌿 Non-Toxic Products</span
+            >
+            <span class="bg-white/10 px-3 py-1 rounded-md"
+              >🏆 500+ Happy Harare Clients</span
+            >
+          </div>
+        </div>
+      </div>
 
-<script>
-  function setupFilter() {
-    const filterBtns = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
-    const cardItems = document.querySelectorAll<HTMLElement>(".service-card-item");
+      {/* Treatment & Art Menu with Interactive Filtering */}
+      <div class="mb-20">
+        <div class="text-center md:text-left mb-8 border-b border-gray-200 pb-4">
+          <h2 class="text-2xl font-bold text-gray-900">Treatment & Art Menu</h2>
+          <p class="text-sm text-gray-500">
+            All prices payable in USD / ZiG equivalent at daily official rate
+          </p>
+        </div>
 
-    filterBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const selectedCategory = btn.dataset.filter;
+        {/* Dynamic Service Grid */}
+        <ServiceFilterGrid services={services} />
+      </div>
 
-        filterBtns.forEach((b) => {
-          b.classList.remove("active", "bg-rose-600", "text-white", "shadow-md");
-          b.classList.add("bg-gray-100", "text-gray-600");
-        });
+      {/* Studio Hours & Booking Policies Grid */}
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="bg-white p-8 rounded-2xl border border-rose-100 shadow-sm">
+          <h3
+            class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2"
+          >
+            🕒 Studio Hours (Avondale Studio)
+          </h3>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex justify-between border-b border-gray-100 pb-2">
+              <span>Tuesday – Friday</span>
+              <span class="font-semibold text-gray-800">8:30 AM – 5:30 PM</span>
+            </li>
+            <li class="flex justify-between border-b border-gray-100 pb-2">
+              <span>Saturday</span>
+              <span class="font-semibold text-gray-800">8:00 AM – 6:00 PM</span>
+            </li>
+            <li class="flex justify-between text-rose-600">
+              <span>Sunday & Monday</span>
+              <span class="font-semibold"
+                >Closed (Private Bridal Appointments Only)</span
+              >
+            </li>
+          </ul>
+        </div>
 
-        btn.classList.add("active", "bg-rose-600", "text-white", "shadow-md");
-        btn.classList.remove("bg-gray-100", "text-gray-600");
+        <div class="bg-white p-8 rounded-2xl border border-rose-100 shadow-sm">
+          <h3
+            class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2"
+          >
+            📋 Appointment & Hygiene Policy
+          </h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-rose-500">✔</span>
+              <span
+                >Hospital-grade autoclaved tool sterilization for every client.</span
+              >
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-rose-500">✔</span>
+              <span
+                >15-minute grace period for appointments due to Harare traffic.</span
+              >
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-rose-500">✔</span>
+              <span
+                >Cash (USD) or EcoCash / ZiG bank transfer accepted at checkout.</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
 
-        cardItems.forEach((card) => {
-          const cardCategory = card.dataset.category;
-
-          if (selectedCategory === "All" || cardCategory === selectedCategory) {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
+      {/* Client Testimonials Section */}
+      <div class="mb-16">
+        <h3 class="text-2xl font-bold text-center text-gray-900 mb-8">
+          What Our Clients Say
+        </h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          {
+            reviews.map((rev) => (
+              <div class="bg-rose-50/50 p-6 rounded-2xl border border-rose-100 flex flex-col justify-between">
+                <div>
+                  <div class="flex text-amber-400 mb-2 text-xs">
+                    {Array.from({ length: rev.rating }).map(() => (
+                      <span>★</span>
+                    ))}
+                  </div>
+                  <p class="mb-4 text-sm leading-relaxed italic text-gray-700">
+                    "{rev.text}"
+                  </p>
+                </div>
+                <div class="font-bold text-sm text-gray-900 pt-2 border-t border-rose-100/60">
+                  — {rev.name}
+                  {rev.suburb && (
+                    <span class="text-rose-600 font-normal text-xs ml-1">
+                      ({rev.suburb})
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))
           }
-        });
-      });
-    });
-  }
+        </div>
+      </div>
 
-  // Execute on initial page load
-  setupFilter();
-
-  // Re-run if using Astro view transitions
-  document.addEventListener("astro:page-load", setupFilter);
-</script>
+      {/* CTA Direct Booking Banner */}
+      <div
+        class="bg-gradient-to-r from-rose-600 to-pink-600 text-white rounded-3xl p-10 text-center shadow-xl max-w-4xl mx-auto"
+      >
+        <h2 class="text-3xl font-extrabold mb-3">
+          Ready for your transformation with Tafadzwa?
+        </h2>
+        <p class="text-rose-100 mb-8 max-w-xl mx-auto text-sm md:text-base">
+          Book your slot online or call our Harare studio directly to schedule
+          your custom nail design consultation.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="/contact"
+            class="bg-white text-rose-600 font-bold px-8 py-3.5 rounded-full hover:bg-rose-50 transition-colors shadow-lg"
+          >
+            Book Online
+          </a>
+          <a
+            href="tel:+263770000000"
+            class="border-2 border-white text-white font-bold px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors"
+          >
+            Call Studio (+263)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
