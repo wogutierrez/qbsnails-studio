@@ -1,4 +1,4 @@
----
+
 import Layout from "../layouts/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 
@@ -59,19 +59,19 @@ const highlights = [
 <Layout title="Qutiqled beauty Studio | Luxury Nail Salon in Avondale, Harare">
   {/* SECTION 1: HERO BANNER */}
   <section
-    class="bg-gradient-to-b from-rose-50 via-pink-50/40 to-white py-16 md:py-24 px-4"
+    class="bg-gradient-to-b from-brand-gold-light/40 via-brand-gold-light/20 to-white py-16 md:py-24 px-4"
   >
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div>
         <span
-          class="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-100 border border-rose-200 px-3.5 py-1.5 rounded-full inline-block mb-4"
+          class="text-xs font-bold uppercase tracking-widest text-brand-gold-dark bg-brand-gold-light border border-brand-gold-light px-3.5 py-1.5 rounded-full inline-block mb-4"
         >
           📍 Avondale Shopping Centre, Harare
         </span>
         <h1
           class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-6 tracking-tight"
         >
-          Elegance Crafted for Your <span class="text-rose-600">Nails.</span>
+          Elegance Crafted for Your <span class="text-brand-gold">Nails.</span>
         </h1>
         <p class="text-gray-600 text-lg leading-relaxed mb-8">
           Welcome to Qutiqled Beauty Studio—Harare's premier destination for
@@ -82,13 +82,13 @@ const highlights = [
         <div class="flex flex-col sm:flex-row gap-4">
           <a
             href="/services"
-            class="bg-rose-600 hover:bg-rose-700 text-white font-bold py-3.5 px-8 rounded-full shadow-lg hover:shadow-xl transition-all text-center"
+            class="bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-3.5 px-8 rounded-full shadow-lg hover:shadow-xl transition-all text-center"
           >
             Explore Treatment Menu
           </a>
           <a
             href="/contact"
-            class="bg-white hover:bg-rose-50 text-rose-600 font-bold border-2 border-rose-200 py-3.5 px-8 rounded-full transition-all text-center"
+            class="bg-white hover:bg-brand-gold-light/50 text-brand-gold-dark font-bold border-2 border-brand-gold-light py-3.5 px-8 rounded-full transition-all text-center"
           >
             Book Appointment
           </a>
@@ -98,7 +98,7 @@ const highlights = [
       {/* Hero Visual Box */}
       <div class="relative">
         <div
-          class="aspect-square rounded-3xl bg-gradient-to-tr from-rose-200 to-pink-100 overflow-hidden shadow-2xl border-4 border-white relative flex items-center justify-center"
+          class="aspect-square rounded-3xl bg-gradient-to-tr from-brand-gold-light to-brand-gold/20 overflow-hidden shadow-2xl border-4 border-white relative flex items-center justify-center"
         >
           <img
             src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80"
@@ -114,7 +114,7 @@ const highlights = [
             <p class="text-sm font-extrabold text-gray-900">
               Tafadzwa Shiripinda
             </p>
-            <p class="text-xs text-rose-600 font-medium">
+            <p class="text-xs text-brand-gold-dark font-medium">
               8+ Years Experience in Harare
             </p>
           </div>
@@ -124,7 +124,7 @@ const highlights = [
   </section>
 
   {/* SECTION 2: WHY CHOOSE US */}
-  <section class="py-16 bg-white border-y border-rose-100">
+  <section class="py-16 bg-white border-y border-brand-gold-light">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto mb-12">
         <h2 class="text-3xl font-extrabold text-gray-900 mb-3">
@@ -139,7 +139,7 @@ const highlights = [
       <div class="grid md:grid-cols-3 gap-8">
         {
           highlights.map((item) => (
-            <div class="p-6 rounded-2xl bg-rose-50/50 border border-rose-100 text-center hover:bg-rose-50 transition-colors">
+            <div class="p-6 rounded-2xl bg-brand-gold-light/30 border border-brand-gold-light text-center hover:bg-brand-gold-light/60 transition-colors">
               <div class="text-4xl mb-3">{item.icon}</div>
               <h3 class="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
               <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
@@ -156,7 +156,7 @@ const highlights = [
       <div class="flex flex-col md:flex-row justify-between items-end mb-12">
         <div>
           <span
-            class="text-xs font-bold uppercase tracking-widest text-rose-600"
+            class="text-xs font-bold uppercase tracking-widest text-brand-gold-dark"
             >Popular Treatments</span
           >
           <h2 class="text-3xl font-black text-gray-900 mt-1">
@@ -165,7 +165,7 @@ const highlights = [
         </div>
         <a
           href="/services"
-          class="text-rose-600 font-bold text-sm hover:underline mt-4 md:mt-0"
+          class="text-brand-gold-dark font-bold text-sm hover:underline mt-4 md:mt-0"
         >
           View Full Menu & Pricing &rarr;
         </a>
@@ -196,7 +196,7 @@ const highlights = [
     >
       <div class="relative z-10">
         <span
-          class="text-xs font-bold uppercase tracking-widest text-rose-400 bg-rose-950 px-3.5 py-1 rounded-full inline-block mb-4"
+          class="text-xs font-bold uppercase tracking-widest text-brand-gold-light bg-brand-gold-dark/40 px-3.5 py-1 rounded-full inline-block mb-4 border border-brand-gold/30"
         >
           Appointments Recommended
         </span>
@@ -209,7 +209,7 @@ const highlights = [
         </p>
         <a
           href="/contact"
-          class="inline-block bg-rose-600 hover:bg-rose-700 text-white font-bold py-3.5 px-8 rounded-full shadow-lg transition-colors"
+          class="inline-block bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-3.5 px-8 rounded-full shadow-lg transition-colors"
         >
           Book Your Appointment
         </a>

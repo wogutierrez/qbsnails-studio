@@ -1,26 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* Primary Red/Pink Palette (#f5465f) */
-  --color-rose-50: #fff3ee;
-  --color-rose-100: #ffe4d9;
-  --color-rose-200: #ffd0bf;
-  --color-rose-400: #ff8a5a;
-  --color-rose-500: #f5465f;
-  --color-rose-600: #f5465f;
-  --color-rose-700: #dc314a;
-  --color-rose-950: #4a0d15;
-
-  /* Secondary Teal Palette (#03989e) */
-  --color-teal-500: #03989e;
-  --color-teal-600: #03989e;
-  --color-teal-700: #027a7f;
-
-  /* Accent Orange Palette (#ff8a5a) */
-  --color-pink-50: #fff0eb;
-  --color-pink-100: #ffe0d4;
-
-  /* Dark Text Palette (#110303) */
-  --color-gray-900: #110303;
-  --color-slate-900: #110303;
+  /* Her exact 5 brand variables */
+  --color-text: #110303;
+  --color-background: #ffffff;
+  --color-primary: #f5465f;
+  --color-primary-hover: #dc314a;
+  --color-secondary: #03989e;
+  --color-secondary-hover: #027a7f;
+  --color-accent: #ff8a5a;
+  --color-accent-light: #fff3ee;
 }
