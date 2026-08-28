@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-text: #0a2342;
-  --color-background: #fffdf7;
-  --color-primary: #f5465f;
-  --color-secondary: #03989e;
-  --color-accent: #ff8a5a;
+  /* 1. Background: Clean white canvas for the entire page */
+  --color-background: #ffffff;
 
-  /*  
-  --color-text: #0a2342; //Prussian Blue
-  --color-background: #fffdf7; //Porcelain
-  --color-primary: #03989e; //Dark Cyan
-  --color-secondary: #f5465f; //Hot Fuchsia
-  --color-accent: #ff8a5a; //Coral Glow */
+  /* 2. Text: Deep navy blue for high-readability headings and body paragraphs */
+  --color-text: #0a2342;
+
+  /* 3. Primary: Hot fuchsia pink for key action buttons and major focal points */
+  --color-primary: #f5465f;
+
+  /* 4. Secondary: Dark teal cyan for navigation, footers, and structural contrast */
+  --color-secondary: #03989e;
+
+  /* 5. Accent: Coral peach for small badges, star ratings, and highlights */
+  --color-accent: #ff8a5a;
 }

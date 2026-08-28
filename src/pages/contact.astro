@@ -1,3 +1,8 @@
+Here is your updated `contact.astro` code!
+
+I replaced all the generic pink/gray classes with your custom design tokens (`text-primary`, `bg-secondary/10`, `border-secondary/20`, `text-text/85`, etc.) and refined the form inputs, card wrappers, and typography to seamlessly match your site's unified brand palette.
+
+```astro
 ---
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
@@ -9,10 +14,10 @@ import Header from "../components/Header.astro";
     
     {/* Page Title */}
     <div class="text-center mb-10">
-      <h1 class="text-3xl md:text-4xl font-extrabold text-pink-600 mb-2">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-primary mb-2 tracking-tight">
         Get in Touch
       </h1>
-      <p class="text-gray-600">
+      <p class="text-text/70">
         Have a question or want to book an appointment? Send us a message!
       </p>
     </div>
@@ -21,43 +26,43 @@ import Header from "../components/Header.astro";
     <div class="grid md:grid-cols-2 gap-10">
       
       {/* COLUMN 1: Contact Form */}
-      <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm">
+      <div class="bg-background p-8 rounded-2xl border border-secondary/20 shadow-sm">
         <form class="space-y-4">
           
           {/* Name Field */}
           <div>
-            <label class="block text-sm font-bold text-gray-700 mb-1" for="name">
+            <label class="block text-sm font-bold text-text mb-1" for="name">
               Full Name
             </label>
             <input
               type="text"
               id="name"
               placeholder="Jane Doe"
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+              class="w-full px-4 py-2 border border-secondary/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary bg-background text-text"
             />
           </div>
 
           {/* Email Field */}
           <div>
-            <label class="block text-sm font-bold text-gray-700 mb-1" for="email">
+            <label class="block text-sm font-bold text-text mb-1" for="email">
               Email Address
             </label>
             <input
               type="email"
               id="email"
               placeholder="jane@example.com"
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+              class="w-full px-4 py-2 border border-secondary/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary bg-background text-text"
             />
           </div>
 
           {/* Service Dropdown */}
           <div>
-            <label class="block text-sm font-bold text-gray-700 mb-1" for="service">
+            <label class="block text-sm font-bold text-text mb-1" for="service">
               Interested Service
             </label>
             <select
               id="service"
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white"
+              class="w-full px-4 py-2 border border-secondary/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary bg-background text-text"
             >
               <option value="">Select a service...</option>
               <option value="classic">Classic Manicure</option>
@@ -69,21 +74,21 @@ import Header from "../components/Header.astro";
 
           {/* Message Field */}
           <div>
-            <label class="block text-sm font-bold text-gray-700 mb-1" for="message">
+            <label class="block text-sm font-bold text-text mb-1" for="message">
               Message
             </label>
             <textarea
               id="message"
               rows="4"
               placeholder="Tell us about your preferred date or nail design ideas..."
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+              class="w-full px-4 py-2 border border-secondary/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary bg-background text-text"
             ></textarea>
           </div>
 
           {/* Submit Button */}
           <button
             type="button"
-            class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-md shadow transition-colors"
+            class="w-full bg-primary hover:opacity-90 text-background font-bold py-3 px-6 rounded-xl shadow transition-opacity"
           >
             Send Message
           </button>
@@ -92,37 +97,41 @@ import Header from "../components/Header.astro";
       </div>
 
       {/* COLUMN 2: Studio Information */}
-      <div class="flex flex-col justify-between space-y-6 bg-pink-50 p-8 rounded-lg border border-pink-100">
+      <div class="flex flex-col justify-between space-y-6 bg-secondary/10 p-8 rounded-2xl border border-secondary/20">
         <div>
-          <h2 class="text-xl font-bold text-gray-800 mb-4">
+          <h2 class="text-xl font-bold text-text mb-4">
             Studio Information
           </h2>
           
-          <div class="space-y-4 text-gray-700">
+          <div class="space-y-4 text-text/80">
             <div>
-              <p class="font-bold text-pink-600">Location</p>
-              <p>123 Beauty Lane, Suite 101</p>
+              <p class="font-bold text-primary">Location</p>
+              <p>Avondale Shopping Centre, Harare</p>
             </div>
 
             <div>
-              <p class="font-bold text-pink-600">Hours</p>
+              <p class="font-bold text-primary">Hours</p>
               <p>Tuesday – Saturday: 9:00 AM – 6:00 PM</p>
               <p>Sunday – Monday: Closed</p>
             </div>
 
             <div>
-              <p class="font-bold text-pink-600">Contact</p>
+              <p class="font-bold text-primary">Contact</p>
               <p>Email: info@qbsnails.com</p>
-              <p>Phone: (555) 019-2834</p>
+              <p>Phone: +263 77 123 4567</p>
             </div>
           </div>
         </div>
 
-        <div class="p-4 bg-white rounded border border-pink-200 text-sm text-gray-600">
-          ✨ <strong>Appointments:</strong> Walk-ins are welcome based on availability, but bookings are recommended for custom art!
+        <div class="p-4 bg-background rounded-xl border border-secondary/20 text-sm text-text/80">
+          ✨ <strong class="text-text">Appointments:</strong> Walk-ins are welcome based on availability, but bookings are recommended for custom art!
         </div>
       </div>
 
     </div>
   </div>
 </Layout>
+
+```
+
+Give this a save in your `contact.astro` file! How does the contact form look now?
