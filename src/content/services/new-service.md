@@ -1,5 +1,6 @@
 ---
 name: New service
+featured: true
 price: US45
 duration: 60 mins
 badge: Low Price
