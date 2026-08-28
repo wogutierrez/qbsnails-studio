@@ -1,13 +1,9 @@
 @import "tailwindcss";
 
-@theme {
-  /* Her exact 5 brand variables */
+:root {
   --color-text: #110303;
   --color-background: #ffffff;
   --color-primary: #f5465f;
-  --color-primary-hover: #dc314a;
   --color-secondary: #03989e;
-  --color-secondary-hover: #027a7f;
   --color-accent: #ff8a5a;
-  --color-accent-light: #fff3ee;
 }

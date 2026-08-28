@@ -59,36 +59,36 @@ const highlights = [
 <Layout title="Qutiqled beauty Studio | Luxury Nail Salon in Avondale, Harare">
   {/* SECTION 1: HERO BANNER */}
   <section
-    class="bg-gradient-to-b from-brand-gold-light/40 via-brand-gold-light/20 to-white py-16 md:py-24 px-4"
+    class="bg-gradient-to-b from-[var(--color-accent)]/10 via-[var(--color-primary)]/5 to-[var(--color-background)] py-16 md:py-24 px-4"
   >
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div>
         <span
-          class="text-xs font-bold uppercase tracking-widest text-brand-gold-dark bg-brand-gold-light border border-brand-gold-light px-3.5 py-1.5 rounded-full inline-block mb-4"
+          class="text-xs font-bold uppercase tracking-widest text-[var(--color-secondary)] bg-[var(--color-secondary)]/10 border border-[var(--color-secondary)]/20 px-3.5 py-1.5 rounded-full inline-block mb-4"
         >
           📍 Avondale Shopping Centre, Harare
         </span>
         <h1
-          class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-6 tracking-tight"
+          class="text-4xl md:text-6xl font-black text-[var(--color-text)] leading-tight mb-6 tracking-tight"
         >
-          Elegance Crafted for Your <span class="text-brand-gold">Nails.</span>
+          Elegance Crafted for Your <span class="text-[var(--color-primary)]">Nails.</span>
         </h1>
-        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+        <p class="text-[var(--color-text)]/80 text-lg leading-relaxed mb-8">
           Welcome to Qutiqled Beauty Studio—Harare's premier destination for
           luxury gel overlays, spa pedicures, and bespoke hand-painted artwork
-          led by <strong class="text-gray-800">Tafadzwa Shiripinda</strong>.
+          led by <strong class="text-[var(--color-text)]">Tafadzwa Shiripinda</strong>.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
           <a
             href="/services"
-            class="bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-3.5 px-8 rounded-full shadow-lg hover:shadow-xl transition-all text-center"
+            class="bg-[var(--color-primary)] hover:opacity-90 text-white font-bold py-3.5 px-8 rounded-full shadow-lg hover:shadow-xl transition-all text-center"
           >
             Explore Treatment Menu
           </a>
           <a
             href="/contact"
-            class="bg-white hover:bg-brand-gold-light/50 text-brand-gold-dark font-bold border-2 border-brand-gold-light py-3.5 px-8 rounded-full transition-all text-center"
+            class="bg-[var(--color-background)] hover:bg-[var(--color-accent)]/10 text-[var(--color-secondary)] font-bold border-2 border-[var(--color-secondary)] py-3.5 px-8 rounded-full transition-all text-center"
           >
             Book Appointment
           </a>
@@ -98,7 +98,7 @@ const highlights = [
       {/* Hero Visual Box */}
       <div class="relative">
         <div
-          class="aspect-square rounded-3xl bg-gradient-to-tr from-brand-gold-light to-brand-gold/20 overflow-hidden shadow-2xl border-4 border-white relative flex items-center justify-center"
+          class="aspect-square rounded-3xl bg-gradient-to-tr from-[var(--color-accent)]/20 to-[var(--color-primary)]/20 overflow-hidden shadow-2xl border-4 border-[var(--color-background)] relative flex items-center justify-center"
         >
           <img
             src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80"
@@ -106,15 +106,15 @@ const highlights = [
             class="w-full h-full object-cover"
           />
           <div
-            class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-white/50 shadow-lg"
+            class="absolute bottom-4 left-4 right-4 bg-[var(--color-background)]/90 backdrop-blur-md p-4 rounded-2xl border border-[var(--color-background)]/50 shadow-lg"
           >
-            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">
+            <p class="text-xs font-bold text-[var(--color-text)]/60 uppercase tracking-wider">
               Lead Specialist
             </p>
-            <p class="text-sm font-extrabold text-gray-900">
+            <p class="text-sm font-extrabold text-[var(--color-text)]">
               Tafadzwa Shiripinda
             </p>
-            <p class="text-xs text-brand-gold-dark font-medium">
+            <p class="text-xs text-[var(--color-secondary)] font-medium">
               8+ Years Experience in Harare
             </p>
           </div>
@@ -124,13 +124,13 @@ const highlights = [
   </section>
 
   {/* SECTION 2: WHY CHOOSE US */}
-  <section class="py-16 bg-white border-y border-brand-gold-light">
+  <section class="py-16 bg-[var(--color-background)] border-y border-[var(--color-accent)]/20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto mb-12">
-        <h2 class="text-3xl font-extrabold text-gray-900 mb-3">
+        <h2 class="text-3xl font-extrabold text-[var(--color-text)] mb-3">
           The Qutiqled Experience
         </h2>
-        <p class="text-gray-600 text-sm md:text-base">
+        <p class="text-[var(--color-text)]/70 text-sm md:text-base">
           We combine international gel standards with personalized African
           artistry.
         </p>
@@ -139,10 +139,10 @@ const highlights = [
       <div class="grid md:grid-cols-3 gap-8">
         {
           highlights.map((item) => (
-            <div class="p-6 rounded-2xl bg-brand-gold-light/30 border border-brand-gold-light text-center hover:bg-brand-gold-light/60 transition-colors">
+            <div class="p-6 rounded-2xl bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 text-center hover:bg-[var(--color-accent)]/20 transition-colors">
               <div class="text-4xl mb-3">{item.icon}</div>
-              <h3 class="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              <h3 class="text-lg font-bold text-[var(--color-text)] mb-2">{item.title}</h3>
+              <p class="text-[var(--color-text)]/80 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))
         }
@@ -151,21 +151,21 @@ const highlights = [
   </section>
 
   {/* SECTION 3: FEATURED SERVICES PREVIEW */}
-  <section class="py-16 bg-gray-50">
+  <section class="py-16 bg-[var(--color-accent)]/5">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-end mb-12">
         <div>
           <span
-            class="text-xs font-bold uppercase tracking-widest text-brand-gold-dark"
+            class="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]"
             >Popular Treatments</span
           >
-          <h2 class="text-3xl font-black text-gray-900 mt-1">
+          <h2 class="text-3xl font-black text-[var(--color-text)] mt-1">
             Featured Services
           </h2>
         </div>
         <a
           href="/services"
-          class="text-brand-gold-dark font-bold text-sm hover:underline mt-4 md:mt-0"
+          class="text-[var(--color-secondary)] font-bold text-sm hover:underline mt-4 md:mt-0"
         >
           View Full Menu & Pricing &rarr;
         </a>
@@ -190,26 +190,26 @@ const highlights = [
   </section>
 
   {/* SECTION 4: CALL TO ACTION BANNER */}
-  <section class="py-16 px-4 bg-white">
+  <section class="py-16 px-4 bg-[var(--color-background)]">
     <div
-      class="max-w-4xl mx-auto bg-slate-900 text-white rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden"
+      class="max-w-4xl mx-auto bg-[var(--color-text)] text-[var(--color-background)] rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden"
     >
       <div class="relative z-10">
         <span
-          class="text-xs font-bold uppercase tracking-widest text-brand-gold-light bg-brand-gold-dark/40 px-3.5 py-1 rounded-full inline-block mb-4 border border-brand-gold/30"
+          class="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)] bg-[var(--color-accent)]/10 px-3.5 py-1 rounded-full inline-block mb-4 border border-[var(--color-accent)]/30"
         >
           Appointments Recommended
         </span>
         <h2 class="text-3xl md:text-4xl font-black mb-4">
           Ready for Your Studio Experience?
         </h2>
-        <p class="text-slate-300 max-w-xl mx-auto mb-8 text-sm md:text-base">
+        <p class="text-[var(--color-background)]/80 max-w-xl mx-auto mb-8 text-sm md:text-base">
           Visit us at Avondale Shopping Centre or book online to reserve your
           slot with Tafadzwa.
         </p>
         <a
           href="/contact"
-          class="inline-block bg-brand-gold hover:bg-brand-gold-dark text-white font-bold py-3.5 px-8 rounded-full shadow-lg transition-colors"
+          class="inline-block bg-[var(--color-primary)] hover:opacity-90 text-white font-bold py-3.5 px-8 rounded-full shadow-lg transition-all"
         >
           Book Your Appointment
         </a>
