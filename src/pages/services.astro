@@ -1,5 +1,4 @@
 ---
-
 import Layout from "../layouts/Layout.astro";
 import ServiceFilterGrid from "../components/ServiceFilterGrid.astro";
 import { getCollection } from "astro:content";
@@ -30,13 +29,12 @@ suburb: entry.data.suburb,
 text: entry.data.text,
 rating: entry.data.rating || 5,
 }));
-----
+---
 
 <Layout title="Services & Menu | Qutiqled Beauty Studio Harare">
   <div class="bg-gradient-to-b from-primary/10 via-background to-secondary/5 py-12">
     <div class="container mx-auto px-4 max-w-6xl">
 
-```
   {/* Hero Studio Banner */}
   <div class="text-center max-w-3xl mx-auto mb-16">
     <span
@@ -269,7 +267,6 @@ rating: entry.data.rating || 5,
   </div>
 
 </div>
-```
 
   </div>
 </Layout>
