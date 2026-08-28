@@ -4,36 +4,37 @@ import ServiceCard from "../components/ServiceCard.astro";
 
 import { getCollection } from "astro:content";
 
-
 // 1. Fetch live services from CMS
 const allServices = await getCollection("services");
 
-// 2. Filter for services matching your badges
-const allowedBadges = ["Featured", "Most Popular", "Client Favorite", "Artisan"];
+// 2. Pure JavaScript filtering for featured items
+const featuredEntries = [];
+for (let i = 0; i < allServices.length; i++) {
+  if (allServices[i].data && allServices[i].data.featured === true) {
+    featuredEntries.push(allServices[i]);
+  }
+}
 
-const featuredEntries = allServices.filter((entry) => {
-  const badge = entry.data.badge;
-  return badge && allowedBadges.includes(badge);
-})
-
-// Fallback: If no badges match, take the first 3
+// Fallback: If no services are checked as featured yet, take the first 3
 const displayEntries = featuredEntries.length > 0 ? featuredEntries : allServices.slice(0, 3);
 
-// 3. Format images for ServiceCard
-const services = displayEntries.map((entry) => ({
-  name: entry.data.name,
-  price: entry.data.price,
-  duration: entry.data.duration,
-  badge: entry.data.badge,
-  category: entry.data.category,
-  description: entry.data.description,
-  image: entry.data.image
-    ? {
-        url: entry.data.image,
-        alt: entry.data.name,
-      }
-    : null,
-}));
+// 3. Format images for ServiceCard using standard JavaScript
+const services = displayEntries.map(function (entry) {
+  return {
+    name: entry.data.name,
+    price: entry.data.price,
+    duration: entry.data.duration,
+    badge: entry.data.badge,
+    category: entry.data.category,
+    description: entry.data.description,
+    image: entry.data.image
+      ? {
+          url: entry.data.image,
+          alt: entry.data.name,
+        }
+      : null,
+  };
+});
 
 // Highlighted featured services for the home page
 const highlights = [
