@@ -1,3 +1,4 @@
+---
 import Layout from "../layouts/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 
@@ -6,7 +7,7 @@ import { getCollection } from "astro:content";
 // 1. Fetch live services from CMS
 const allServices = await getCollection("services");
 
-// 2. Pure JavaScript filtering for featured items 0
+// 2. Pure JavaScript filtering for featured items
 const featuredEntries = [];
 for (let i = 0; i < allServices.length; i++) {
   if (allServices[i].data && allServices[i].data.featured === true) {
@@ -14,8 +15,11 @@ for (let i = 0; i < allServices.length; i++) {
   }
 }
 
-// Fallback0: If no services are checked as featured yet, take the first 3
-const displayEntries = featuredEntries.length > 0 ? featuredEntries : allServices.slice(0, 3);
+// Fallback: If no services are checked as featured yet, take the first 3
+const displayEntries =
+  featuredEntries.length > 0
+    ? featuredEntries
+    : allServices.slice(0, 3);
 
 // 3. Format images for ServiceCard using standard JavaScript
 const services = displayEntries.map(function (entry) {
@@ -55,7 +59,7 @@ const highlights = [
 ];
 ---
 
-<Layout title="Qutiqled beauty Studio | Luxury Nail Salon in Avondale, Harare">
+<Layout title="Qutiqled Beauty Studio | Luxury Nail Salon in Avondale, Harare">
   {/* SECTION 1: HERO BANNER */}
   <section
     class="bg-gradient-to-b from-[var(--color-accent)]/10 via-[var(--color-primary)]/5 to-[var(--color-background)] py-16 md:py-24 px-4"
@@ -67,29 +71,31 @@ const highlights = [
         >
           📍 Avondale Shopping Centre, Harare
         </span>
+
         <h1
           class="text-4xl md:text-6xl font-black text-[var(--color-text)] leading-tight mb-6 tracking-tight"
         >
-          Elegance Crafted for Your <span class="text-[var(--color-primary)]">Nails.</span>
+          Elegance Crafted for Your
+          <span class="text-[var(--color-primary)]">Nails.</span>
         </h1>
+
         <p class="text-[var(--color-text)]/80 text-lg leading-relaxed mb-8">
           Welcome to Qutiqled Beauty Studio—Harare's premier destination for
           luxury gel overlays, spa pedicures, and bespoke hand-painted artwork
-          led by <strong class="text-[var(--color-text)]">Tafadzwa Shiripinda</strong>.
+          led by
+          <strong class="text-[var(--color-text)]">Tafadzwa Shiripinda</strong>.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
           <a
             href="/services"
-            class="bg-[var(--color-primary)] hover:opacity-90 text-white font-bold py-3.5 px-8 rounded-full shadow-lg hover:shadow-xl transition-all text-center"
-          >
+            class="bg-[var(--color-primary)] hover:opacity-90 text-white font-bold py-3.5 px-8 rounded    >
             Explore Treatment Menu
           </a>
+
           <a
             href="/contact"
-            class="bg-[var(--color-background)] hover:bg-[var(--color-accent)]/10 text-[var(--color-secondary)] font-bold border-2 border-[var(--color-secondary)] py-3.5 px-8 rounded-full transition-all text-center"
-          >
-            Book Appointment
+            class="bg-[var(--color-background)] hover:bg-[var(--color-accent)]/10 text-[var(--color-secondary)] font-bold border-2 border-[var(--color-secondary           Book Appointment
           </a>
         </div>
       </div>
@@ -101,18 +107,21 @@ const highlights = [
         >
           <img
             src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80"
-            alt="Qutiqled beauty Studio Nails"
+            alt="Qutiqled Beauty Studio Nails"
             class="w-full h-full object-cover"
           />
+
           <div
             class="absolute bottom-4 left-4 right-4 bg-[var(--color-background)]/90 backdrop-blur-md p-4 rounded-2xl border border-[var(--color-background)]/50 shadow-lg"
           >
             <p class="text-xs font-bold text-[var(--color-text)]/60 uppercase tracking-wider">
               Lead Specialist
             </p>
+
             <p class="text-sm font-extrabold text-[var(--color-text)]">
               Tafadzwa Shiripinda
             </p>
+
             <p class="text-xs text-[var(--color-secondary)] font-medium">
               8+ Years Experience in Harare
             </p>
@@ -129,6 +138,7 @@ const highlights = [
         <h2 class="text-3xl font-extrabold text-[var(--color-text)] mb-3">
           The Qutiqled Experience
         </h2>
+
         <p class="text-[var(--color-text)]/70 text-sm md:text-base">
           We combine international gel standards with personalized African
           artistry.
@@ -140,8 +150,12 @@ const highlights = [
           highlights.map((item) => (
             <div class="p-6 rounded-2xl bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 text-center hover:bg-[var(--color-accent)]/20 transition-colors">
               <div class="text-4xl mb-3">{item.icon}</div>
-              <h3 class="text-lg font-bold text-[var(--color-text)] mb-2">{item.title}</h3>
-              <p class="text-[var(--color-text)]/80 text-sm leading-relaxed">{item.desc}</p>
+              <h3 class="text-lg font-bold text-[var(--color-text)] mb-2">
+                {item.title}
+              </h3>
+              <p class="text-[var(--color-text)]/80 text-sm leading-relaxed">
+                {item.desc}
+              </p>
             </div>
           ))
         }
@@ -156,18 +170,18 @@ const highlights = [
         <div>
           <span
             class="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]"
-            >Popular Treatments</span
           >
+            Popular Treatments
+          </span>
+
           <h2 class="text-3xl font-black text-[var(--color-text)] mt-1">
             Featured Services
           </h2>
         </div>
+
         <a
           href="/services"
-          class="text-[var(--color-secondary)] font-bold text-sm hover:underline mt-4 md:mt-0"
-        >
-          View Full Menu & Pricing &rarr;
-        </a>
+          class="text-[var(--color-secondary)] font-bold text-sm hover:underline    </a>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
@@ -199,18 +213,19 @@ const highlights = [
         >
           Appointments Recommended
         </span>
+
         <h2 class="text-3xl md:text-4xl font-black mb-4">
           Ready for Your Studio Experience?
         </h2>
+
         <p class="text-[var(--color-background)]/80 max-w-xl mx-auto mb-8 text-sm md:text-base">
           Visit us at Avondale Shopping Centre or book online to reserve your
           slot with Tafadzwa.
         </p>
+
         <a
           href="/contact"
-          class="inline-block bg-[var(--color-primary)] hover:opacity-90 text-white font-bold py-3.5 px-8 rounded-full shadow-lg transition-all"
-        >
-          Book Your Appointment
+          class="inline-block bg-[var(--color-primary)] hover:opacity-90 text-white font  Book Your Appointment
         </a>
       </div>
     </div>
