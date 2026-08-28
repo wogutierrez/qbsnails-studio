@@ -1,5 +1,6 @@
 ---
 name: Nail Service
+featured: true
 price: U$100
 duration: 60min
 badge: Low Prices
