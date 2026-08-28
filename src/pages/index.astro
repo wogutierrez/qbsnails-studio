@@ -6,7 +6,7 @@ import { getCollection } from "astro:content";
 // 1. Fetch live services from CMS
 const allServices = await getCollection("services");
 
-// 2. Pure JavaScript filtering for featured items
+// 2. Pure JavaScript filtering for featured items 0
 const featuredEntries = [];
 for (let i = 0; i < allServices.length; i++) {
   if (allServices[i].data && allServices[i].data.featured === true) {
