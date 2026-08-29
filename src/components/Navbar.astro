@@ -1,17 +1,29 @@
 ---
-// Component Frontmatter (JavaScript goes here if needed later).
+// Component Frontmatter
 ---
 
-<nav class="w-full border-b border-secondary/30 bg-background py-4 shadow-sm sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-    <a href="/" class="text-2xl font-bold text-primary tracking-tight">
+<nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom shadow-sm" style="border-color: rgba(3, 152, 158, 0.3) !important; background-color: var(--background) !important;">
+  <div class="container">
+    <a href="/" class="navbar-brand fw-bold" style="color: var(--primary); font-size: 1.5rem; letter-spacing: -0.025em;">
       QBS Nails
     </a>
     
-    <div class="space-x-8 text-base font-medium">
-      <a href="/" class="text-text/85 hover:text-primary transition-colors">Home</a>
-      <a href="/services" class="text-text/85 hover:text-primary transition-colors">Services</a>
-      <a href="/contact" class="text-text/85 hover:text-primary transition-colors">Contact</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a href="/" class="nav-link fw-medium" style="color: rgba(17, 3, 3, 0.85);">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/services" class="nav-link fw-medium" style="color: rgba(17, 3, 3, 0.85);">Services</a>
+        </li>
+        <li class="nav-item">
+          <a href="/contact" class="nav-link fw-medium" style="color: rgba(17, 3, 3, 0.85);">Contact</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

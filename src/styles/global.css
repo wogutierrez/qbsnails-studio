@@ -1,18 +1,147 @@
-@import "tailwindcss";
+/* src/styles/global.css */
 
-@theme {
-  /* 1. Background: Clean white canvas for the entire page */
-  --color-background: #ffffff;
+/* ===== COLOR THEMES ===== */
+:root {
+  --primary: #f5465f;
+  --secondary: #03989e;
+  --accent: #ff8a5a;
+  --text: #110303;
+  --background: #ffffff;
+}
 
-  /* 2. Text: Deep navy blue for high-readability headings and body paragraphs */
-  --color-text: #0a2342;
+[data-theme="dark"] {
+  --primary: #f5465f;
+  --secondary: #03989e;
+  --accent: #ff8a5a;
+  --text: #ffffff;
+  --background: #110303;
+}
 
-  /* 3. Primary: Hot fuchsia pink for key action buttons and major focal points */
-  --color-primary: #f5465f;
+[data-theme="gold"] {
+  --primary: #c9a66b;
+  --secondary: #8b6b4a;
+  --accent: #e8d5b7;
+  --text: #2d2d2d;
+  --background: #faf8f5;
+}
 
-  /* 4. Secondary: Dark teal cyan for navigation, footers, and structural contrast */
-  --color-secondary: #03989e;
+/* ===== BODY STYLES ===== */
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-  /* 5. Accent: Coral peach for small badges, star ratings, and highlights */
-  --color-accent: #ff8a5a;
+main {
+  flex: 1;
+}
+
+/* ===== BOOTSTRAP OVERRIDES ===== */
+.btn-primary-custom {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline-custom {
+  background-color: transparent;
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+  background-color: var(--secondary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.text-primary-custom {
+  color: var(--primary) !important;
+}
+
+.text-secondary-custom {
+  color: var(--secondary) !important;
+}
+
+.bg-primary-soft {
+  background-color: rgba(245, 70, 95, 0.08) !important;
+}
+
+.bg-secondary-soft {
+  background-color: rgba(3, 152, 158, 0.08) !important;
+}
+
+.badge-custom {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.section-subtitle {
+  color: rgba(17, 3, 3, 0.7);
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 70, 95, 0.05),
+    rgba(3, 152, 158, 0.08),
+    var(--background)
+  );
+}
+
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* ===== FONT CLASSES ===== */
+.fw-900 {
+  font-weight: 900;
+}
+
+.tracking-wide {
+  letter-spacing: 0.05em;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
 }

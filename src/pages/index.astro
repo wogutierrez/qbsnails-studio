@@ -1,13 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-
 import { getCollection } from "astro:content";
 
-// 1. Fetch live services from CMS
+// Fetch services
 const allServices = await getCollection("services");
 
-// 2. Pure JavaScript filtering for featured items
+// Filter featured
 const featuredEntries = [];
 for (let i = 0; i < allServices.length; i++) {
   if (allServices[i].data && allServices[i].data.featured === true) {
@@ -15,13 +14,10 @@ for (let i = 0; i < allServices.length; i++) {
   }
 }
 
-// Fallback: If no services are checked as featured yet, take the first
-const displayEntries =
-  featuredEntries.length > 0
-    ? featuredEntries
-    : allServices.slice(0, 3);
+// Fallback
+const displayEntries = featuredEntries.length > 0 ? featuredEntries : allServices.slice(0, 3);
 
-// 3. Format images for ServiceCard using standard JavaScript
+// Format services
 const services = displayEntries.map(function (entry) {
   return {
     name: entry.data.name,
@@ -30,16 +26,14 @@ const services = displayEntries.map(function (entry) {
     badge: entry.data.badge,
     category: entry.data.category,
     description: entry.data.description,
-    image: entry.data.image
-      ? {
-          url: entry.data.image,
-          alt: entry.data.name,
-        }
-      : null,
+    image: entry.data.image ? {
+      url: entry.data.image,
+      alt: entry.data.name,
+    } : null,
   };
 });
 
-// Highlighted featured services for the home page
+// Highlights
 const highlights = [
   {
     icon: "🌿",
@@ -60,139 +54,117 @@ const highlights = [
 ---
 
 <Layout title="Qutiqled Beauty Studio | Luxury Nail Salon in Avondale, Harare">
-  {/* SECTION 1: HERO BANNER */}
-  <section
-    class="bg-gradient-to-b from-secondary/10 via-primary/5 to-background py-16 md:py-24 px-4"
-  >
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <span
-          class="text-xs font-bold uppercase tracking-widest text-secondary bg-secondary/10 border border-secondary/20 px-3.5 py-1.5 rounded-full inline-block mb-4"
-        >
-          📍 Avondale Shopping Centre, Harare
-        </span>
 
-        <h1
-          class="text-4xl md:text-6xl font-black text-text leading-tight mb-6 tracking-tight"
-        >
-          Elegance Crafted for Your
-          <span class="text-primary">Nails.</span>
-        </h1>
-
-        <p class="text-text/80 text-lg leading-relaxed mb-8">
-          Welcome to Qutiqled Beauty Studio—Harare's premier destination for
-          luxury gel overlays, spa pedicures, and bespoke hand-painted artwork
-          led by
-          <strong class="text-text">Tafadzwa Shiripinda</strong>.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href="/services"
-            class="bg-primary hover:opacity-90 text-background font-bold py-3.5 px-8 rounded-xl text-center shadow-lg transition-opacity"
-          >
-            Explore Treatment Menu
-          </a>
-
-          <a
-            href="/contact"
-            class="bg-background hover:bg-secondary/10 text-secondary font-bold border-2 border-secondary py-3.5 px-8 rounded-xl text-center transition-colors"
-          >
-            Book Appointment
-          </a>
+  <!-- SECTION 1: HERO -->
+  <section class="hero-gradient py-5 py-md-6">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <!-- Left Column -->
+        <div class="col-lg-6">
+          <span class="badge-custom mb-3">
+            📍 Avondale Shopping Centre, Harare
+          </span>
+          
+          <h1 class="display-4 fw-900 text-text mb-4">
+            Elegance Crafted for Your
+            <span class="text-primary-custom">Nails.</span>
+          </h1>
+          
+          <p class="fs-5 text-text-secondary leading-relaxed mb-4">
+            Welcome to Qutiqled Beauty Studio—Harare's premier destination for
+            luxury gel overlays, spa pedicures, and bespoke hand-painted artwork
+            led by
+            <strong class="text-text">Tafadzwa Shiripinda</strong>.
+          </p>
+          
+          <div class="d-flex flex-wrap gap-3">
+            <a href="/services" class="btn btn-primary-custom">
+              Explore Treatment Menu
+            </a>
+            <a href="/contact" class="btn btn-outline-custom">
+              Book Appointment
+            </a>
+          </div>
         </div>
-      </div>
-
-      {/* Hero Visual Box */}
-      <div class="relative">
-        <div
-          class="aspect-square rounded-3xl bg-gradient-to-tr from-secondary/20 to-primary/20 overflow-hidden shadow-2xl border-4 border-background relative flex items-center justify-center"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80"
-            alt="Qutiqled Beauty Studio Nails"
-            class="w-full h-full object-cover"
-          />
-
-          <div
-            class="absolute bottom-4 left-4 right-4 bg-background/90 backdrop-blur-md p-4 rounded-2xl border border-background/50 shadow-lg"
-          >
-            <p class="text-xs font-bold text-text/60 uppercase tracking-wider">
-              Lead Specialist
-            </p>
-
-            <p class="text-sm font-extrabold text-text">
-              Tafadzwa Shiripinda
-            </p>
-
-            <p class="text-xs text-secondary font-medium">
-              8+ Years Experience in Harare
-            </p>
+        
+        <!-- Right Column -->
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <div class="bg-gradient-to-tr from-secondary/20 to-primary/20 overflow-hidden shadow-2xl border-4 border-background rounded-4 position-relative" style="aspect-ratio: 1/1;">
+              <img
+                src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80"
+                alt="Qutiqled Beauty Studio Nails"
+                class="w-100 h-100 object-fit-cover"
+              />
+              
+              <div class="position-absolute bottom-0 start-0 end-0 p-3" style="background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); margin: 1rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.5);">
+                <p class="text-uppercase text-text-secondary fw-bold mb-0" style="font-size: 0.65rem; letter-spacing: 0.05em;">
+                  Lead Specialist
+                </p>
+                <p class="fw-900 text-text mb-0">
+                  Tafadzwa Shiripinda
+                </p>
+                <p class="text-secondary-custom mb-0" style="font-size: 0.8rem;">
+                  8+ Years Experience in Harare
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  {/* SECTION 2: WHY CHOOSE US */}
-  <section class="py-16 bg-background border-y border-secondary/20">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <h2 class="text-3xl font-extrabold text-text mb-3">
+  <!-- SECTION 2: WHY CHOOSE US -->
+  <section class="py-5 bg-body border-top border-bottom" style="border-color: rgba(3, 152, 158, 0.2) !important;">
+    <div class="container">
+      <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+        <h2 class="section-title mb-2">
           The Qutiqled Experience
         </h2>
-
-        <p class="text-text/70 text-sm md:text-base">
-          We combine international gel standards with personalized African
-          artistry.
+        <p class="section-subtitle">
+          We combine international gel standards with personalized African artistry.
         </p>
       </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        {
-          highlights.map((item) => (
-            <div class="p-6 rounded-2xl bg-secondary/5 border border-secondary/15 text-center hover:bg-secondary/10 transition-colors">
-              <div class="text-4xl mb-3">{item.icon}</div>
-              <h3 class="text-lg font-bold text-text mb-2">
+      
+      <div class="row g-4">
+        {highlights.map((item) => (
+          <div class="col-md-4">
+            <div class="p-4 rounded-4 text-center bg-secondary-soft border border-secondary border-opacity-10 hover-lift">
+              <div class="display-4 mb-2">{item.icon}</div>
+              <h3 class="fw-bold text-text mb-2">
                 {item.title}
               </h3>
-              <p class="text-text/80 text-sm leading-relaxed">
+              <p class="text-text-secondary mb-0" style="font-size: 0.9rem;">
                 {item.desc}
               </p>
             </div>
-          ))
-        }
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  {/* SECTION 3: FEATURED SERVICES PREVIEW */}
-  <section class="py-16 bg-secondary/5">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+  <!-- SECTION 3: FEATURED SERVICES -->
+  <section class="py-5" style="background-color: rgba(3, 152, 158, 0.05);">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5">
         <div>
-          <span
-            class="text-xs font-bold uppercase tracking-widest text-primary"
-          >
+          <span class="badge-custom d-inline-block mb-1" style="background-color: var(--primary);">
             Popular Treatments
           </span>
-
-          <h2 class="text-3xl font-black text-text mt-1">
+          <h2 class="section-title mt-1">
             Featured Services
           </h2>
         </div>
-
-        <a
-          href="/services"
-          class="text-secondary font-bold text-sm hover:underline"
-        >
+        <a href="/services" class="text-secondary-custom fw-bold text-decoration-none hover-underline">
           View All Services →
         </a>
       </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        {
-          services.map((service) => (
+      
+      <div class="row g-4">
+        {services.map((service) => (
+          <div class="col-md-4">
             <ServiceCard
               name={service.name}
               price={service.price}
@@ -202,40 +174,36 @@ const highlights = [
               description={service.description}
               image={service.image}
             />
-          ))
-        }
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  {/* SECTION 4: CALL TO ACTION BANNER */}
-  <section class="py-16 px-4 bg-background">
-    <div
-      class="max-w-4xl mx-auto bg-text text-background rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden"
-    >
-      <div class="relative z-10">
-        <span
-          class="text-xs font-bold uppercase tracking-widest text-accent bg-accent/10 px-3.5 py-1 rounded-full inline-block mb-4 border border-accent/30"
-        >
-          Appointments Recommended
-        </span>
-
-        <h2 class="text-3xl md:text-4xl font-black mb-4">
-          Ready for Your Studio Experience?
-        </h2>
-
-        <p class="text-background/80 max-w-xl mx-auto mb-8 text-sm md:text-base">
-          Visit us at Avondale Shopping Centre or book online to reserve your
-          slot with Tafadzwa.
-        </p>
-
-        <a
-          href="/contact"
-          class="inline-block bg-primary hover:opacity-90 text-background font-bold py-3.5 px-8 rounded-xl shadow-lg transition-opacity"
-        >
-          Book Your Appointment
-        </a>
+  <!-- SECTION 4: CALL TO ACTION -->
+  <section class="py-5 bg-body">
+    <div class="container">
+      <div class="bg-text text-background rounded-4 p-5 text-center shadow-lg position-relative overflow-hidden" style="background-color: var(--text) !important;">
+        <div class="position-relative z-1">
+          <span class="badge-custom d-inline-block mb-3" style="background-color: var(--accent) !important; color: var(--text) !important;">
+            Appointments Recommended
+          </span>
+          
+          <h2 class="display-6 fw-900 mb-3" style="color: white !important;">
+            Ready for Your Studio Experience?
+          </h2>
+          
+          <p class="text-white-50 mx-auto mb-4" style="max-width: 600px;">
+            Visit us at Avondale Shopping Centre or book online to reserve your
+            slot with Tafadzwa.
+          </p>
+          
+          <a href="/contact" class="btn btn-primary-custom" style="background-color: var(--primary) !important; border-color: var(--primary) !important;">
+            Book Your Appointment
+          </a>
+        </div>
       </div>
     </div>
   </section>
+
 </Layout>

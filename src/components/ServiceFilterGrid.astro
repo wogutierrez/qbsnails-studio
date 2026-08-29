@@ -7,19 +7,24 @@ const rawCategories = services.map((s) => s.category).filter(Boolean);
 const categories = ["All", ...Array.from(new Set(rawCategories))];
 ---
 
-<div class="service-filter-wrapper w-full">
-  {/* CATEGORY FILTER BUTTONS */}
-  <div class="flex flex-wrap justify-end items-center w-full gap-2 mb-8">
+<div class="service-filter-wrapper w-100">
+  <!-- CATEGORY FILTER BUTTONS -->
+  <div class="d-flex flex-wrap justify-content-end gap-2 mb-4">
     {
       categories.map((cat, index) => (
         <button
           type="button"
           data-filter={cat}
-          class={`filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all ${
-            index === 0
-              ? "active bg-rose-600 text-white shadow-md"
-              : "bg-gray-100 text-gray-600 hover:bg-rose-100 hover:text-rose-600"
-          }`}
+          class={`filter-btn px-4 py-2 rounded-pill fw-bold border-0 transition-all ${index === 0 ? "active text-white" : "bg-light text-secondary"}`}
+          style={{
+            fontSize: "0.75rem",
+            transition: "all 0.3s ease",
+            backgroundColor: index === 0 ? "var(--primary)" : "#f3f4f6",
+            color: index === 0 ? "white" : "#6b7280",
+            boxShadow: index === 0 ? "0 4px 12px rgba(0,0,0,0.15)" : "none"
+          }}
+          onmouseover={index !== 0 ? "this.style.backgroundColor='rgba(245,70,95,0.1)'; this.style.color='var(--primary)'" : ""}
+          onmouseout={index !== 0 ? "this.style.backgroundColor='#f3f4f6'; this.style.color='#6b7280'" : ""}
         >
           {cat}
         </button>
@@ -27,11 +32,11 @@ const categories = ["All", ...Array.from(new Set(rawCategories))];
     }
   </div>
 
-  {/* SERVICE CARDS GRID */}
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+  <!-- SERVICE CARDS GRID -->
+  <div class="row g-4 w-100">
     {
       services.map((service) => (
-        <div class="service-card-item" data-category={service.category}>
+        <div class="col-md-6 col-lg-4 service-card-item" data-category={service.category}>
           <ServiceCard
             name={service.name}
             price={service.price}
@@ -57,16 +62,19 @@ const categories = ["All", ...Array.from(new Set(rawCategories))];
         const selectedCategory = btn.dataset.filter;
 
         filterBtns.forEach((b) => {
-          b.classList.remove("active", "bg-rose-600", "text-white", "shadow-md");
-          b.classList.add("bg-gray-100", "text-gray-600", "hover:bg-rose-100", "hover:text-rose-600");
+          b.classList.remove("active");
+          b.style.backgroundColor = "#f3f4f6";
+          b.style.color = "#6b7280";
+          b.style.boxShadow = "none";
         });
 
-        btn.classList.add("active", "bg-rose-600", "text-white", "shadow-md");
-        btn.classList.remove("bg-gray-100", "text-gray-600", "hover:bg-rose-100", "hover:text-rose-600");
+        btn.classList.add("active");
+        btn.style.backgroundColor = "var(--primary)";
+        btn.style.color = "white";
+        btn.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
 
         cardItems.forEach((card) => {
           const cardCategory = card.dataset.category;
-
           if (selectedCategory === "All" || cardCategory === selectedCategory) {
             card.style.display = "block";
           } else {
