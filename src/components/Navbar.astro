@@ -1,3 +1,7 @@
+---
+// Component Frontmatter
+---
+
 <nav class="navbar navbar-expand-lg sticky-top" style="background: #ffffff; border-bottom: 1px solid var(--secondary);">
   <div class="container">
     <a href="/" class="navbar-brand fw-bold" style="color: var(--primary); font-size: 1.5rem;">QBS Nails</a>
@@ -9,8 +13,9 @@
         <li class="nav-item"><a href="/" class="nav-link fw-medium" style="color: #110303;">Home</a></li>
         <li class="nav-item"><a href="/services" class="nav-link fw-medium" style="color: #110303;">Services</a></li>
         <li class="nav-item"><a href="/contact" class="nav-link fw-medium" style="color: #110303;">Contact</a></li>
-        <li class="nav-item ms-2">
-          <select id="themeSelector" class="form-select form-select-sm" style="border-color: var(--secondary); width: 130px;">
+        <li class="nav-item ms-2 d-flex align-items-center gap-2">
+          <label for="themeSelector" class="fw-medium small" style="color: #110303;">Theme:</label>
+          <select id="themeSelector" class="form-select form-select-sm" style="border-color: var(--secondary); width: 130px;" aria-label="Select theme">
             <option value="default">🎨 Original</option>
             <option value="cool">❄️ Cool</option>
             <option value="warm">🔥 Warm</option>
