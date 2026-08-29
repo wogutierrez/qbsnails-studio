@@ -29,79 +29,68 @@ const reviews = reviewEntries.map((entry) => ({
 ---
 
 <Layout title="Services & Menu | Qutiqled Beauty Studio Harare">
-  <div class="bg-body">
-    <div class="container py-5">
 
-      <!-- Hero Section -->
-      <div class="text-center mx-auto mb-5" style="max-width: 700px;">
-        <span class="badge-custom d-inline-block mb-3">
-          📍 Avondale Shopping Centre, Harare
-        </span>
-        <h1 class="display-4 fw-900 text-text mb-3">
-          Qutiqled Beauty Studio Menu
-        </h1>
-        <p class="text-text-secondary fs-5">
+  <!-- SECTION 1: HERO -->
+  <section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem;">
+    <div class="container">
+      <div class="text-center mx-auto" style="max-width: 700px;">
+        <span class="badge-custom d-inline-block mb-3">📍 Avondale Shopping Centre, Harare</span>
+        <h1 class="display-4 fw-bold mb-3" style="color: #110303;">Qutiqled Beauty Studio Menu</h1>
+        <p style="color: #110303; font-size: 1.25rem;">
           Harare's home for luxury nail care, healthy natural nail restoration,
           and bespoke hand-painted artwork led by certified Master Nail
           Specialist
-          <strong class="text-primary-custom">Tafadzwa Shiripinda</strong>.
+          <strong style="color: var(--primary);">Tafadzwa Shiripinda</strong>.
         </p>
       </div>
+    </div>
+  </section>
 
-      <!-- Specialist Spotlight -->
-      <div class="p-4 p-md-5 rounded-4 mb-5 text-white" style="background: linear-gradient(135deg, var(--text), var(--primary));">
-        <div class="row align-items-center g-4">
-          <div class="col-md-auto text-center">
-            <div class="rounded-circle bg-white bg-opacity-10 border border-4 border-primary d-flex align-items-center justify-content-center mx-auto" style="width: 120px; height: 120px; font-size: 2.5rem; font-weight: 900; color: var(--primary);">
-              TS
-            </div>
-          </div>
-          <div class="col-md">
-            <span class="badge-custom d-inline-block mb-2" style="background-color: var(--accent) !important; color: var(--text) !important;">
-              Lead Nail Technician & Founder
-            </span>
-            <h2 class="display-6 fw-900 text-white">
-              Meet Tafadzwa Shiripinda
-            </h2>
-            <p class="text-white-80" style="font-size: 0.95rem; line-height: 1.625;">
-              With over 8 years of specialized experience in natural nail health,
-              gel chemistry, and custom Zimbabwean artistic motifs, Tafadzwa
-              ensures every client leaves with healthy, durable, and show-stopping
-              nails.
-            </p>
-            <div class="d-flex flex-wrap gap-2">
-              <span class="badge bg-white bg-opacity-10 text-white px-3 py-2">✨ Certified Gel Specialist</span>
-              <span class="badge bg-white bg-opacity-10 text-white px-3 py-2">🌿 Non-Toxic Products</span>
-              <span class="badge bg-white bg-opacity-10 text-white px-3 py-2">🏆 500+ Happy Harare Clients</span>
-            </div>
-          </div>
-        </div>
+  <!-- SECTION 2: SPECIALIST SPOTLIGHT -->
+<section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem; border-top: 2px solid var(--secondary); border-bottom: 2px solid var(--secondary);">
+  <div class="container">
+    <div class="rounded-4 p-5 text-center" style="background: #110303;">
+      <span class="badge-custom d-inline-block mb-3" style="background: var(--accent) !important; color: #110303 !important;">Lead Nail Technician & Founder</span>
+      <h2 class="display-6 fw-bold mb-3 text-white">Meet Tafadzwa Shiripinda</h2>
+      <p class="text-white-50 mx-auto mb-4" style="max-width: 700px;">With over 8 years of specialized experience in natural nail health, gel chemistry, and custom Zimbabwean artistic motifs, Tafadzwa ensures every client leaves with healthy, durable, and show-stopping nails.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <span class="badge" style="background: rgba(255,255,255,0.1); color: white; padding: 0.5rem 1rem;">✨ Certified Gel Specialist</span>
+        <span class="badge" style="background: rgba(255,255,255,0.1); color: white; padding: 0.5rem 1rem;">🌿 Non-Toxic Products</span>
+        <span class="badge" style="background: rgba(255,255,255,0.1); color: white; padding: 0.5rem 1rem;">🏆 500+ Happy Harare Clients</span>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Treatment Menu -->
-      <div class="mb-5">
-        <div class="border-bottom pb-3 mb-4">
-          <h2 class="section-title mb-0">Treatment & Art Menu</h2>
-          <p class="text-text-secondary small">All prices payable in USD / ZiG equivalent at daily official rate</p>
-        </div>
-        <ServiceFilterGrid services={services} />
+
+  <!-- SECTION 3: TREATMENT MENU -->
+  <section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem;">
+    <div class="container">
+      <div class="border-bottom pb-3 mb-4" style="border-color: var(--secondary) !important;">
+        <h2 class="fw-bold" style="color: #110303; font-size: 2.5rem;">Treatment & Art Menu</h2>
+        <p style="color: #110303; font-size: 0.9rem;">All prices payable in USD / ZiG equivalent at daily official rate</p>
       </div>
+      <ServiceFilterGrid services={services} />
+    </div>
+  </section>
 
-      <!-- Studio Hours & Policies -->
-      <div class="row g-4 mb-5">
+  <!-- SECTION 4: STUDIO HOURS & POLICIES -->
+  <section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem; border-top: 2px solid var(--secondary); border-bottom: 2px solid var(--secondary);">
+    <div class="container">
+      <div class="row g-4">
         <div class="col-md-6">
-          <div class="p-4 rounded-4 border shadow-sm h-100" style="border-color: rgba(3, 152, 158, 0.3) !important;">
-            <h3 class="fw-bold text-text mb-3">🕒 Studio Hours (Avondale Studio)</h3>
+          <div class="p-4 rounded-4" style="border: 2px solid var(--secondary);">
+            <h3 class="fw-bold mb-3" style="color: #110303;">🕒 Studio Hours (Avondale Studio)</h3>
             <ul class="list-unstyled">
-              <li class="d-flex justify-content-between border-bottom py-2" style="border-color: rgba(17, 3, 3, 0.1);">
-                <span class="text-text-secondary">Tuesday – Friday</span>
-                <span class="fw-semibold text-text">8:30 AM – 5:30 PM</span>
+              <li class="d-flex justify-content-between border-bottom py-2" style="border-color: rgba(17,3,3,0.1);">
+                <span style="color: #110303;">Tuesday – Friday</span>
+                <span class="fw-semibold" style="color: #110303;">8:30 AM – 5:30 PM</span>
               </li>
-              <li class="d-flex justify-content-between border-bottom py-2" style="border-color: rgba(17, 3, 3, 0.1);">
-                <span class="text-text-secondary">Saturday</span>
-                <span class="fw-semibold text-text">8:00 AM – 6:00 PM</span>
+              <li class="d-flex justify-content-between border-bottom py-2" style="border-color: rgba(17,3,3,0.1);">
+                <span style="color: #110303;">Saturday</span>
+                <span class="fw-semibold" style="color: #110303;">8:00 AM – 6:00 PM</span>
               </li>
-              <li class="d-flex justify-content-between py-2 text-primary-custom">
+              <li class="d-flex justify-content-between py-2" style="color: var(--primary);">
                 <span>Sunday & Monday</span>
                 <span class="fw-semibold">Closed (Private Bridal Only)</span>
               </li>
@@ -109,70 +98,63 @@ const reviews = reviewEntries.map((entry) => ({
           </div>
         </div>
         <div class="col-md-6">
-          <div class="p-4 rounded-4 border shadow-sm h-100" style="border-color: rgba(3, 152, 158, 0.3) !important;">
-            <h3 class="fw-bold text-text mb-3">📋 Appointment & Hygiene Policy</h3>
+          <div class="p-4 rounded-4" style="border: 2px solid var(--secondary);">
+            <h3 class="fw-bold mb-3" style="color: #110303;">📋 Appointment & Hygiene Policy</h3>
             <ul class="list-unstyled">
               <li class="d-flex gap-2 mb-2">
-                <span class="text-secondary-custom">✔</span>
-                <span class="text-text-secondary">Hospital-grade autoclaved tool sterilization for every client.</span>
+                <span style="color: var(--secondary);">✔</span>
+                <span style="color: #110303;">Hospital-grade autoclaved tool sterilization for every client.</span>
               </li>
               <li class="d-flex gap-2 mb-2">
-                <span class="text-secondary-custom">✔</span>
-                <span class="text-text-secondary">15-minute grace period for appointments due to Harare traffic.</span>
+                <span style="color: var(--secondary);">✔</span>
+                <span style="color: #110303;">15-minute grace period for appointments due to Harare traffic.</span>
               </li>
               <li class="d-flex gap-2">
-                <span class="text-secondary-custom">✔</span>
-                <span class="text-text-secondary">Cash (USD) or EcoCash / ZiG bank transfer accepted at checkout.</span>
+                <span style="color: var(--secondary);">✔</span>
+                <span style="color: #110303;">Cash (USD) or EcoCash / ZiG bank transfer accepted at checkout.</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Testimonials -->
-      <div class="mb-5">
-        <h3 class="text-center section-title mb-4">What Our Clients Say</h3>
-        <div class="row g-4">
-          {reviews.map((rev) => (
-            <div class="col-md-6">
-              <div class="p-4 rounded-4 h-100 d-flex flex-column" style="background-color: rgba(3, 152, 158, 0.05); border: 1px solid rgba(3, 152, 158, 0.15);">
-                <div class="text-accent-custom mb-2" style="font-size: 0.9rem;">
-                  {Array.from({ length: rev.rating }).map(() => (
-                    <span>★</span>
-                  ))}
-                </div>
-                <p class="text-text-secondary fst-italic flex-grow-1 mb-3" style="font-size: 0.95rem; line-height: 1.625;">
-                  "{rev.text}"
-                </p>
-                <div class="pt-2 border-top fw-bold text-text" style="border-color: rgba(245, 70, 95, 0.1);">
-                  — {rev.name}
-                  {rev.suburb && (
-                    <span class="text-primary-custom fw-normal small ms-1">({rev.suburb})</span>
-                  )}
-                </div>
+  <!-- SECTION 5: TESTIMONIALS -->
+  <section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem;">
+    <div class="container">
+      <h3 class="text-center fw-bold mb-4" style="color: #110303; font-size: 2.5rem;">What Our Clients Say</h3>
+      <div class="row g-4">
+        {reviews.map((rev) => (
+          <div class="col-md-6">
+            <div class="p-4 rounded-4 h-100 d-flex flex-column" style="border: 2px solid var(--secondary);">
+              <div class="mb-2" style="color: var(--accent); font-size: 0.9rem;">
+                {Array.from({ length: rev.rating }).map(() => (<span>★</span>))}
+              </div>
+              <p class="fst-italic flex-grow-1 mb-3" style="color: #110303; font-size: 0.95rem; line-height: 1.625;">"{rev.text}"</p>
+              <div class="pt-2 border-top fw-bold" style="color: #110303; border-color: var(--secondary) !important;">
+                — {rev.name}
+                {rev.suburb && (<span class="fw-normal small ms-1" style="color: var(--primary);">({rev.suburb})</span>)}
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
+    </div>
+  </section>
 
-      <!-- CTA Banner -->
-      <div class="p-4 p-md-5 rounded-4 text-center text-white" style="background: linear-gradient(135deg, var(--primary), var(--accent));">
-        <h2 class="display-6 fw-900 mb-3">Ready for your transformation with Tafadzwa?</h2>
-        <p class="text-white-80 mx-auto mb-4" style="max-width: 600px;">
-          Book your slot online or call our Harare studio directly to schedule
-          your custom nail design consultation.
-        </p>
-        <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="/contact" class="btn" style="background-color: var(--background); color: var(--primary); font-weight: 700; padding: 0.75rem 2rem; border-radius: 50px;">
-            Book Online
-          </a>
-          <a href="tel:+263770000000" class="btn btn-outline-light" style="font-weight: 700; padding: 0.75rem 2rem; border-radius: 50px; border-width: 2px;">
-            Call Studio (+263)
-          </a>
-        </div>
+  <!-- SECTION 6: CALL TO ACTION -->
+<section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem; border-top: 2px solid var(--secondary);">
+  <div class="container">
+    <div class="rounded-4 p-5 text-center" style="background: #110303;">
+      <h2 class="display-6 fw-bold mb-3 text-white">Ready for your transformation with Tafadzwa?</h2>
+      <p class="text-white-50 mx-auto mb-4" style="max-width: 600px;">Book your slot online or call our Harare studio directly to schedule your custom nail design consultation.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="/contact" class="btn" style="background: #ffffff; color: var(--primary); font-weight: 700; padding: 0.75rem 2rem; border-radius: 50px;">Book Online</a>
+        <a href="tel:+263770000000" class="btn btn-outline-light" style="font-weight: 700; padding: 0.75rem 2rem; border-radius: 50px; border-width: 2px;">Call Studio (+263)</a>
       </div>
-
     </div>
   </div>
+</section>
+
 </Layout>

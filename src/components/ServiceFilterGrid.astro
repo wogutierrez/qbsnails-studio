@@ -15,16 +15,17 @@ const categories = ["All", ...Array.from(new Set(rawCategories))];
         <button
           type="button"
           data-filter={cat}
-          class={`filter-btn px-4 py-2 rounded-pill fw-bold border-0 transition-all ${index === 0 ? "active text-white" : "bg-light text-secondary"}`}
+          class={`filter-btn px-4 py-2 rounded-pill fw-bold border-0 transition-all ${index === 0 ? "active text-white" : ""}`}
           style={{
             fontSize: "0.75rem",
             transition: "all 0.3s ease",
-            backgroundColor: index === 0 ? "var(--primary)" : "#f3f4f6",
-            color: index === 0 ? "white" : "#6b7280",
-            boxShadow: index === 0 ? "0 4px 12px rgba(0,0,0,0.15)" : "none"
+            backgroundColor: index === 0 ? "var(--primary)" : "var(--background)",
+            color: index === 0 ? "white" : "var(--text)",
+            boxShadow: index === 0 ? "0 4px 12px rgba(0,0,0,0.15)" : "none",
+            border: index === 0 ? "none" : "1px solid var(--secondary)"
           }}
-          onmouseover={index !== 0 ? "this.style.backgroundColor='rgba(245,70,95,0.1)'; this.style.color='var(--primary)'" : ""}
-          onmouseout={index !== 0 ? "this.style.backgroundColor='#f3f4f6'; this.style.color='#6b7280'" : ""}
+          onmouseover={index !== 0 ? `this.style.backgroundColor='var(--secondary)'; this.style.color='white';` : ""}
+          onmouseout={index !== 0 ? `this.style.backgroundColor='var(--background)'; this.style.color='var(--text)';` : ""}
         >
           {cat}
         </button>
@@ -63,15 +64,17 @@ const categories = ["All", ...Array.from(new Set(rawCategories))];
 
         filterBtns.forEach((b) => {
           b.classList.remove("active");
-          b.style.backgroundColor = "#f3f4f6";
-          b.style.color = "#6b7280";
+          b.style.backgroundColor = "var(--background)";
+          b.style.color = "var(--text)";
           b.style.boxShadow = "none";
+          b.style.border = "1px solid var(--secondary)";
         });
 
         btn.classList.add("active");
         btn.style.backgroundColor = "var(--primary)";
         btn.style.color = "white";
         btn.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+        btn.style.border = "none";
 
         cardItems.forEach((card) => {
           const cardCategory = card.dataset.category;

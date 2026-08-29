@@ -1,137 +1,96 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 ---
 
 <Layout title="Contact | Qutiqled beauty Studio">
-  <div class="container py-5" style="max-width: 960px;">
-    
-    <!-- Page Title -->
-    <div class="text-center mb-5">
-      <h1 class="display-5 fw-900 text-primary-custom mb-2">
-        Get in Touch
-      </h1>
-      <p class="text-text-secondary">
-        Have a question or want to book an appointment? Send us a message!
-      </p>
-    </div>
 
-    <!-- 2-Column Grid -->
-    <div class="row g-4">
-      
-      <!-- COLUMN 1: Contact Form -->
-      <div class="col-md-6">
-        <div class="p-4 p-md-5 rounded-4 border shadow-sm h-100" style="border-color: rgba(3, 152, 158, 0.2) !important; background-color: var(--background);">
-          <form>
-            <!-- Name -->
-            <div class="mb-3">
-              <label class="form-label fw-bold text-text" for="name">
-                Full Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Jane Doe"
-                class="form-control"
-                style="border-color: rgba(3, 152, 158, 0.3); border-radius: 12px;"
-              />
-            </div>
-
-            <!-- Email -->
-            <div class="mb-3">
-              <label class="form-label fw-bold text-text" for="email">
-                Email Address
-              </label>
-              <input
-                type="email"
-                id="email"
-                placeholder="jane@example.com"
-                class="form-control"
-                style="border-color: rgba(3, 152, 158, 0.3); border-radius: 12px;"
-              />
-            </div>
-
-            <!-- Service Dropdown -->
-            <div class="mb-3">
-              <label class="form-label fw-bold text-text" for="service">
-                Interested Service
-              </label>
-              <select
-                id="service"
-                class="form-select"
-                style="border-color: rgba(3, 152, 158, 0.3); border-radius: 12px;"
-              >
-                <option value="">Select a service...</option>
-                <option value="classic">Classic Manicure</option>
-                <option value="gel">Gel Manicure</option>
-                <option value="pedicure">Luxury Pedicure</option>
-                <option value="other">Custom Nail Art / Other</option>
-              </select>
-            </div>
-
-            <!-- Message -->
-            <div class="mb-3">
-              <label class="form-label fw-bold text-text" for="message">
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows="4"
-                placeholder="Tell us about your preferred date or nail design ideas..."
-                class="form-control"
-                style="border-color: rgba(3, 152, 158, 0.3); border-radius: 12px;"
-              ></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <button
-              type="button"
-              class="btn w-100 fw-bold py-3 rounded-3 text-white"
-              style="background-color: var(--primary); transition: opacity 0.3s ease;"
-              onmouseover="this.style.opacity='0.85'"
-              onmouseout="this.style.opacity='1'"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
+  <!-- SECTION 1: HERO -->
+  <section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem;">
+    <div class="container" style="max-width: 960px;">
+      <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold mb-2" style="color: var(--primary);">Get in Touch</h1>
+        <p style="color: #110303; font-size: 1.25rem;">Have a question or want to book an appointment? Send us a message!</p>
       </div>
+    </div>
+  </section>
 
-      <!-- COLUMN 2: Studio Information -->
-      <div class="col-md-6">
-        <div class="p-4 p-md-5 rounded-4 border h-100 d-flex flex-column justify-content-between" style="border-color: rgba(3, 152, 158, 0.2) !important; background-color: rgba(3, 152, 158, 0.08);">
-          <div>
-            <h2 class="fw-bold text-text mb-4">
-              Studio Information
-            </h2>
-            
-            <div class="text-text-secondary">
+  <!-- SECTION 2: CONTACT FORM & INFO -->
+  <section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem; border-top: 2px solid var(--secondary); border-bottom: 2px solid var(--secondary);">
+    <div class="container" style="max-width: 960px;">
+      <div class="row g-4">
+        
+        <!-- Column 1: Contact Form -->
+        <div class="col-md-6">
+          <div class="p-4 p-md-5 rounded-4" style="border: 2px solid var(--secondary);">
+            <form>
               <div class="mb-3">
-                <p class="fw-bold text-primary-custom mb-0">Location</p>
-                <p class="mb-0">Avondale Shopping Centre, Harare</p>
+                <label class="form-label fw-bold" style="color: #110303;">Full Name</label>
+                <input type="text" class="form-control" placeholder="Jane Doe" style="border: 2px solid var(--secondary); border-radius: 12px;">
               </div>
-
               <div class="mb-3">
-                <p class="fw-bold text-primary-custom mb-0">Hours</p>
-                <p class="mb-0">Tuesday – Saturday: 9:00 AM – 6:00 PM</p>
-                <p class="mb-0">Sunday – Monday: Closed</p>
+                <label class="form-label fw-bold" style="color: #110303;">Email Address</label>
+                <input type="email" class="form-control" placeholder="jane@example.com" style="border: 2px solid var(--secondary); border-radius: 12px;">
               </div>
-
-              <div>
-                <p class="fw-bold text-primary-custom mb-0">Contact</p>
-                <p class="mb-0">Email: info@qbsnails.com</p>
-                <p class="mb-0">Phone: +263 77 123 4567</p>
+              <div class="mb-3">
+                <label class="form-label fw-bold" style="color: #110303;">Interested Service</label>
+                <select class="form-select" style="border: 2px solid var(--secondary); border-radius: 12px;">
+                  <option value="">Select a service...</option>
+                  <option value="classic">Classic Manicure</option>
+                  <option value="gel">Gel Manicure</option>
+                  <option value="pedicure">Luxury Pedicure</option>
+                  <option value="other">Custom Nail Art / Other</option>
+                </select>
               </div>
-            </div>
-          </div>
-
-          <div class="mt-4 p-3 rounded-3 border text-text-secondary" style="border-color: rgba(3, 152, 158, 0.2) !important; background-color: var(--background);">
-            ✨ <strong class="text-text">Appointments:</strong> Walk-ins are welcome based on availability, but bookings are recommended for custom art!
+              <div class="mb-3">
+                <label class="form-label fw-bold" style="color: #110303;">Message</label>
+                <textarea rows="4" class="form-control" placeholder="Tell us about your preferred date or nail design ideas..." style="border: 2px solid var(--secondary); border-radius: 12px;"></textarea>
+              </div>
+              <button type="button" class="btn w-100 fw-bold py-3 rounded-3 text-white" style="background: var(--primary);">Send Message</button>
+            </form>
           </div>
         </div>
-      </div>
 
+        <!-- Column 2: Studio Information -->
+        <div class="col-md-6">
+          <div class="p-4 p-md-5 rounded-4 h-100 d-flex flex-column justify-content-between" style="border: 2px solid var(--secondary);">
+            <div>
+              <h2 class="fw-bold mb-4" style="color: #110303;">Studio Information</h2>
+              <div style="color: #110303;">
+                <div class="mb-3">
+                  <p class="fw-bold mb-0" style="color: var(--primary);">Location</p>
+                  <p class="mb-0">Avondale Shopping Centre, Harare</p>
+                </div>
+                <div class="mb-3">
+                  <p class="fw-bold mb-0" style="color: var(--primary);">Hours</p>
+                  <p class="mb-0">Tuesday – Saturday: 9:00 AM – 6:00 PM</p>
+                  <p class="mb-0">Sunday – Monday: Closed</p>
+                </div>
+                <div>
+                  <p class="fw-bold mb-0" style="color: var(--primary);">Contact</p>
+                  <p class="mb-0">Email: info@qbsnails.com</p>
+                  <p class="mb-0">Phone: +263 77 123 4567</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 p-3 rounded-3" style="border: 2px solid var(--secondary);">
+              ✨ <strong style="color: #110303;">Appointments:</strong> Walk-ins are welcome based on availability, but bookings are recommended for custom art!
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- SECTION 3: CALL TO ACTION -->
+  <section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem;">
+    <div class="container">
+      <div class="rounded-4 p-5 text-center" style="background: #110303;">
+        <h2 class="display-6 fw-bold mb-3 text-white">Visit Us Today</h2>
+        <p class="text-white-50 mx-auto mb-4" style="max-width: 600px;">Walk-ins welcome based on availability. Bookings recommended for custom nail art!</p>
+        <a href="tel:+263770000000" class="btn" style="background: var(--primary); color: white; font-weight: 700; padding: 0.75rem 2rem; border-radius: 50px;">Call Studio</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>

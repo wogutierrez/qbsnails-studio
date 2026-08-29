@@ -1,34 +1,28 @@
 /* src/styles/global.css */
 
-/* ===== COLOR THEMES ===== */
+/* ===== THEMES ===== */
 :root {
   --primary: #f5465f;
   --secondary: #03989e;
   --accent: #ff8a5a;
-  --text: #110303;
-  --background: #ffffff;
 }
 
-[data-theme="dark"] {
-  --primary: #f5465f;
-  --secondary: #03989e;
-  --accent: #ff8a5a;
-  --text: #ffffff;
-  --background: #110303;
+[data-theme="cool"] {
+  --primary: #03989e;
+  --secondary: #110303;
+  --accent: #f5465f;
 }
 
-[data-theme="gold"] {
-  --primary: #c9a66b;
-  --secondary: #8b6b4a;
-  --accent: #e8d5b7;
-  --text: #2d2d2d;
-  --background: #faf8f5;
+[data-theme="warm"] {
+  --primary: #ff8a5a;
+  --secondary: #f5465f;
+  --accent: #03989e;
 }
 
-/* ===== BODY STYLES ===== */
+/* ===== BODY ===== */
 body {
-  background-color: var(--background);
-  color: var(--text);
+  background: #ffffff;
+  color: #110303;
   font-family:
     system-ui,
     -apple-system,
@@ -42,10 +36,10 @@ main {
   flex: 1;
 }
 
-/* ===== BOOTSTRAP OVERRIDES ===== */
+/* ===== BUTTONS ===== */
 .btn-primary-custom {
-  background-color: var(--primary);
-  border-color: var(--primary);
+  background: var(--primary);
+  border: none;
   color: white;
   font-weight: 700;
   padding: 0.75rem 2rem;
@@ -54,15 +48,12 @@ main {
 }
 
 .btn-primary-custom:hover {
-  background-color: var(--secondary);
-  border-color: var(--secondary);
+  background: var(--secondary);
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .btn-outline-custom {
-  background-color: transparent;
+  background: transparent;
   color: var(--secondary);
   border: 2px solid var(--secondary);
   font-weight: 700;
@@ -72,29 +63,13 @@ main {
 }
 
 .btn-outline-custom:hover {
-  background-color: var(--secondary);
+  background: var(--secondary);
   color: white;
-  transform: translateY(-2px);
 }
 
-.text-primary-custom {
-  color: var(--primary) !important;
-}
-
-.text-secondary-custom {
-  color: var(--secondary) !important;
-}
-
-.bg-primary-soft {
-  background-color: rgba(245, 70, 95, 0.08) !important;
-}
-
-.bg-secondary-soft {
-  background-color: rgba(3, 152, 158, 0.08) !important;
-}
-
+/* ===== BADGES ===== */
 .badge-custom {
-  background-color: var(--primary);
+  background: var(--primary);
   color: white;
   padding: 0.4rem 1.2rem;
   border-radius: 50px;
@@ -105,43 +80,15 @@ main {
   display: inline-block;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--text);
+/* ===== UTILITY ===== */
+.object-fit-cover {
+  object-fit: cover;
 }
 
-.section-subtitle {
-  color: rgba(17, 3, 3, 0.7);
+.bg-white {
+  background: #ffffff !important;
 }
 
-.hero-gradient {
-  background: linear-gradient(
-    135deg,
-    rgba(245, 70, 95, 0.05),
-    rgba(3, 152, 158, 0.08),
-    var(--background)
-  );
-}
-
-.hover-lift {
-  transition: all 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* ===== FONT CLASSES ===== */
-.fw-900 {
-  font-weight: 900;
-}
-
-.tracking-wide {
-  letter-spacing: 0.05em;
-}
-
-.leading-relaxed {
-  line-height: 1.625;
+.text-white {
+  color: #ffffff !important;
 }
