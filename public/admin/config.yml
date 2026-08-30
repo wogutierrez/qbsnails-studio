@@ -15,19 +15,12 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Service Name", name: "name", widget: "string" }
-      # -----------------------------------------------------------------------
-      # ADDED LINE: Featured Service Boolean Toggle Switch
-      # - widget: "boolean" renders a clean Yes/No checkmark inside Sveltia CMS.
-      # - name: "featured" creates a true/false property in the markdown frontmatter.
-      # - default: false ensures new services aren't automatically featured.
-      # - required: false prevents build errors on existing services missing this field.
-      # -----------------------------------------------------------------------
       - {
           label: "Featured on Homepage?",
           name: "featured",
           widget: "boolean",
           default: false,
-          required: false,
+          required: false
         }
 
       - { label: "Price", name: "price", widget: "string" }
@@ -35,7 +28,7 @@ collections:
           label: "Duration",
           name: "duration",
           widget: "string",
-          required: false,
+          required: false
         }
       - { label: "Badge", name: "badge", widget: "string", required: false }
       - {
@@ -43,20 +36,40 @@ collections:
           name: "category",
           widget: "select",
           options:
-            ["Hands", "Feet", "Art", "Spa Care", "Extensions", "Packages"],
+            ["Hands", "Feet", "Art", "Spa Care", "Extensions", "Packages"]
         }
       - {
           label: "Description",
           name: "description",
           widget: "text",
-          required: false,
+          required: false
         }
       - {
           label: "Service Image",
           name: "image",
           widget: "image",
           required: true,
-          media_library: { config: { multiple: false } },
+          media_library: { config: { multiple: false } }
+        }
+      - {
+          label: "Cal.com Link / Slug",
+          name: "calLink",
+          widget: "string",
+          required: false,
+          hint: "e.g. john-doe/30min or full https://cal.com/... link"
+        }
+      - {
+          label: "Booking Button Text",
+          name: "bookingButtonText",
+          widget: "string",
+          default: "Book Service",
+          required: false
+        }
+      - {
+          label: "Body Content",
+          name: "body",
+          widget: "markdown",
+          required: false
         }
 
   - name: "reviews"
@@ -70,7 +83,7 @@ collections:
           label: "Suburb / Location",
           name: "suburb",
           widget: "string",
-          required: false,
+          required: false
         }
       - { label: "Review Text", name: "text", widget: "text" }
       - {
@@ -81,5 +94,5 @@ collections:
           default: 5,
           min: 1,
           max: 5,
-          required: false,
+          required: false
         }
