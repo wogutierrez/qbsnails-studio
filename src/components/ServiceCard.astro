@@ -42,10 +42,19 @@ const bookingUrl = calLink
     </div>
     <p class="card-text flex-grow-1 small" style="color: #110303;">{description}</p>
   </div>
-  <div class="card-footer bg-transparent border-top pt-3" style="border-color: var(--secondary) !important; background: #ffffff;">
-    <div class="d-flex justify-content-between align-items-center">
+  
+  <!-- CARD FOOTER WITH OPTION 1 GENTLE NOTICE -->
+  <div class="card-footer bg-transparent border-top pt-3 pb-3" style="border-color: var(--secondary) !important; background: #ffffff;">
+    <div class="d-flex justify-content-between align-items-center mb-1">
       <span class="small fw-semibold" style="color: #110303;">💅 Executed by Tafadzwa & Team</span>
       <a href={bookingUrl} target={calLink ? "_blank" : "_self"} rel={calLink ? "noopener noreferrer" : undefined} class="fw-bold text-decoration-none small" style="color: var(--primary);">Book Appointment →</a>
     </div>
+    {calLink && (
+      <div class="text-end">
+        <span style="color: #6c757d; font-size: 0.65rem; display: block; line-height: 1.2;">
+          Opens in a new tab — close when done to return here
+        </span>
+      </div>
+    )}
   </div>
 </div>
