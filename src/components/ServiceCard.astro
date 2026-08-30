@@ -42,19 +42,21 @@ const bookingUrl = calLink
     </div>
     <p class="card-text flex-grow-1 small" style="color: #110303;">{description}</p>
   </div>
-  
-  <!-- CARD FOOTER WITH OPTION 1 GENTLE NOTICE -->
-  <div class="card-footer bg-transparent border-top pt-3 pb-3" style="border-color: var(--secondary) !important; background: #ffffff;">
-    <div class="d-flex justify-content-between align-items-center mb-1">
-      <span class="small fw-semibold" style="color: #110303;">💅 Executed by Tafadzwa & Team</span>
-      <a href={bookingUrl} target={calLink ? "_blank" : "_self"} rel={calLink ? "noopener noreferrer" : undefined} class="fw-bold text-decoration-none small" style="color: var(--primary);">Book Appointment →</a>
-    </div>
+
+  <!-- FOOTER WITH BOLD FULL-WIDTH BUTTON -->
+  <div class="card-footer bg-transparent border-top-0 pt-0 pb-3 px-3" style="background: #ffffff;">
+    <a 
+      href={bookingUrl} 
+      target={calLink ? "_blank" : "_self"} 
+      rel={calLink ? "noopener noreferrer" : undefined} 
+      class="btn btn-primary-custom w-100 text-center py-2 fw-bold"
+    >
+      Book Appointment →
+    </a>
     {calLink && (
-      <div class="text-end">
-        <span style="color: #6c757d; font-size: 0.65rem; display: block; line-height: 1.2;">
-          Opens in a new tab — close when done to return here
-        </span>
-      </div>
+      <span class="d-block text-center mt-2" style="color: #6c757d; font-size: 0.65rem;">
+        Opens in a new tab — close when done to return here
+      </span>
     )}
   </div>
 </div>
