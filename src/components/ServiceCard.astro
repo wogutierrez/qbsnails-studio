@@ -15,7 +15,7 @@ const bookingUrl = calLink
   )}
   <div class="position-relative overflow-hidden" style="aspect-ratio: 16/9; background: rgba(3,152,158,0.05);">
     {image ? (
-      <img src={image.url} alt={image.alt || name} class="w-100 h-100 object-fit-cover" />
+      <img src={typeof image === 'object' ? image.url : image} alt={name} class="w-100 h-100 object-fit-cover" />
     ) : (
       <div class="d-flex flex-column align-items-center justify-content-center h-100 text-center p-4" style="color: #110303;">
         <svg class="mb-2" style="width: 40px; height: 40px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
