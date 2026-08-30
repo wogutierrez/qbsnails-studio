@@ -1,7 +1,7 @@
 ---
 name: Signature Natural Manicures
 featured: true
-price: U$5
+price: U$5.00
 duration: 20min
 badge: Most Popular
 category: Hands
