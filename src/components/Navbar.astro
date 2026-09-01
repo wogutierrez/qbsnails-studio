@@ -16,6 +16,7 @@
         <li class="nav-item"><a href="/services" class="nav-link fw-medium" style="color: #110303;">Services</a></li>
         <li class="nav-item"><a href="/shop" class="nav-link fw-medium" style="color: #110303;">Shop</a></li>
         <li class="nav-item"><a href="/contact" class="nav-link fw-medium" style="color: #110303;">Contact</a></li>
+        <!-- THEME SELECTOR DROPDOWN (DISABLED)
         <li class="nav-item ms-2 d-flex align-items-center gap-2">
           <label for="themeSelector" class="fw-medium small" style="color: #110303;">Theme:</label>
           <select id="themeSelector" class="form-select form-select-sm" style="border-color: var(--secondary); width: 130px;" aria-label="Select theme">
@@ -24,12 +25,14 @@
             <option value="warm">🔥 Warm</option>
           </select>
         </li>
+        -->
       </ul>
     </div>
   </div>
 </nav>
 
 <script>
+/* THEME SELECTOR LOGIC (DISABLE)
   document.addEventListener('DOMContentLoaded', function() {
     const themeSelector = document.getElementById('themeSelector');
     const savedTheme = localStorage.getItem('theme') || 'default';
@@ -41,4 +44,5 @@
       localStorage.setItem('theme', theme);
     });
   });
+  */
 </script>
