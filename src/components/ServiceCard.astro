@@ -15,7 +15,7 @@ const bookingUrl = calLink
   )}
   <div class="position-relative overflow-hidden" style="aspect-ratio: 16/9; background: rgba(3,152,158,0.05);">
     {image ? (
-      <img src={image.url} alt={image.alt || name} class="w-100 h-100 object-fit-cover" />
+      <img src={typeof image === 'object' ? image.url : image} alt={name} class="w-100 h-100 object-fit-cover" />
     ) : (
       <div class="d-flex flex-column align-items-center justify-content-center h-100 text-center p-4" style="color: #110303;">
         <svg class="mb-2" style="width: 40px; height: 40px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -42,10 +42,21 @@ const bookingUrl = calLink
     </div>
     <p class="card-text flex-grow-1 small" style="color: #110303;">{description}</p>
   </div>
-  <div class="card-footer bg-transparent border-top pt-3" style="border-color: var(--secondary) !important; background: #ffffff;">
-    <div class="d-flex justify-content-between align-items-center">
-      <span class="small fw-semibold" style="color: #110303;">💅 Executed by Tafadzwa & Team</span>
-      <a href={bookingUrl} target={calLink ? "_blank" : "_self"} rel={calLink ? "noopener noreferrer" : undefined} class="fw-bold text-decoration-none small" style="color: var(--primary);">Book Appointment →</a>
-    </div>
+
+  <!-- FOOTER WITH BOLD FULL-WIDTH BUTTON -->
+  <div class="card-footer bg-transparent border-top-0 pt-0 pb-3 px-3" style="background: #ffffff;">
+    <a 
+      href={bookingUrl} 
+      target={calLink ? "_blank" : "_self"} 
+      rel={calLink ? "noopener noreferrer" : undefined} 
+      class="btn btn-primary-custom w-100 text-center py-2 fw-bold"
+    >
+      Book Appointment →
+    </a>
+    {calLink && (
+      <span class="d-block text-center mt-2" style="color: #6c757d; font-size: 0.65rem;">
+        Opens in a new tab — close when done to return here
+      </span>
+    )}
   </div>
 </div>

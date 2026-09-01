@@ -12,6 +12,7 @@ const services = serviceEntries.map((entry) => ({
   badge: entry.data.badge,
   category: entry.data.category,
   description: entry.data.description,
+  calLink: entry.data.calLink,
   image: entry.data.image ? {
     url: entry.data.image,
     alt: entry.data.name,
@@ -64,7 +65,7 @@ const reviews = reviewEntries.map((entry) => ({
 
 
   <!-- SECTION 3: TREATMENT MENU -->
-  <section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem;">
+  <section id="treatment-menu" style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem;">
     <div class="container">
       <div class="border-bottom pb-3 mb-4" style="border-color: var(--secondary) !important;">
         <h2 class="fw-bold" style="color: #110303; font-size: 2.5rem;">Treatment & Art Menu</h2>
@@ -154,7 +155,7 @@ const reviews = reviewEntries.map((entry) => ({
       <h2 class="display-6 fw-bold mb-3 text-white">Ready for your transformation with Tafadzwa?</h2>
       <p class="text-white-50 mx-auto mb-4" style="max-width: 600px;">Book your appointment online and experience professional nail care in the comfort of your home.</p>
       <div class="d-flex flex-wrap justify-content-center gap-3">
-        <a href="/contact" class="btn" style="background: #ffffff; color: var(--primary); font-weight: 700; padding: 0.75rem 2rem; border-radius: 50px;">Book Online</a>
+        <a href="https://cal.com/qbsnails-jznl3d" class="btn" style="background: #ffffff; color: var(--primary); font-weight: 700; padding: 0.75rem 2rem; border-radius: 50px;">Book Online</a>
         <a href="tel:+263770000000" class="btn btn-outline-light" style="font-weight: 700; padding: 0.75rem 2rem; border-radius: 50px; border-width: 2px;">Call Us (+263)</a>
       </div>
     </div>

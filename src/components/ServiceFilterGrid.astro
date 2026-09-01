@@ -1,93 +1,87 @@
 ---
 import ServiceCard from "./ServiceCard.astro";
-
 const { services = [] } = Astro.props;
 
-const rawCategories = services.map((s) => s.category).filter(Boolean);
-const categories = ["All", ...Array.from(new Set(rawCategories))];
+// Extract unique categories from services
+const rawCategories = services
+  .map((s) => s.category)
+  .filter((cat) => Boolean(cat));
+
+const categories = ["All", ...new Set(rawCategories)];
 ---
 
-<div class="service-filter-wrapper w-100">
-  <!-- CATEGORY FILTER BUTTONS -->
-  <div class="d-flex flex-wrap justify-content-end gap-2 mb-4">
-    {
-      categories.map((cat, index) => (
-        <button
-          type="button"
-          data-filter={cat}
-          class={`filter-btn px-4 py-2 rounded-pill fw-bold border-0 transition-all ${index === 0 ? "active text-white" : ""}`}
-          style={{
-            fontSize: "0.75rem",
-            transition: "all 0.3s ease",
-            backgroundColor: index === 0 ? "var(--primary)" : "var(--background)",
-            color: index === 0 ? "white" : "var(--text)",
-            boxShadow: index === 0 ? "0 4px 12px rgba(0,0,0,0.15)" : "none",
-            border: index === 0 ? "none" : "1px solid var(--secondary)"
-          }}
-          onmouseover={index !== 0 ? `this.style.backgroundColor='var(--secondary)'; this.style.color='white';` : ""}
-          onmouseout={index !== 0 ? `this.style.backgroundColor='var(--background)'; this.style.color='var(--text)';` : ""}
-        >
-          {cat}
-        </button>
-      ))
-    }
-  </div>
-
-  <!-- SERVICE CARDS GRID -->
-  <div class="row g-4 w-100">
-    {
-      services.map((service) => (
-        <div class="col-md-6 col-lg-4 service-card-item" data-category={service.category}>
-          <ServiceCard
-            name={service.name}
-            price={service.price}
-            duration={service.duration}
-            badge={service.badge}
-            category={service.category}
-            description={service.description}
-            image={service.image}
-          />
-        </div>
-      ))
-    }
-  </div>
+<!-- CATEGORY FILTER BUTTONS -->
+<div class="d-flex flex-wrap gap-2 mb-4 justify-content-end">
+  {
+    categories.map((cat, index) => (
+      <button
+        type="button"
+        class={`btn px-4 py-2 rounded-pill fw-semibold btn-filter ${index === 0 ? "active" : ""}`}
+        data-filter={cat}
+        style={
+          index === 0
+            ? "background: var(--primary); color: #ffffff; border: 2px solid var(--primary);"
+            : "background: #f8f9fa; color: #110303; border: 2px solid var(--secondary);"
+        }
+      >
+        {cat}
+      </button>
+    ))
+  }
 </div>
 
+<!-- SERVICE CARDS GRID -->
+<div class="row g-4 w-100">
+  {
+    services.map((service) => (
+      <div class="col-md-6 col-lg-4 service-card-item" data-category={service.category}>
+        <ServiceCard
+          name={service.name}
+          price={service.price}
+          duration={service.duration}
+          badge={service.badge}
+          category={service.category}
+          description={service.description}
+          calLink={service.calLink}
+          image={service.image}
+        />
+      </div>
+    ))
+  }
+</div>
+
+<!-- FILTER SCRIPT -->
 <script>
-  function setupFilter() {
-    const filterBtns = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
-    const cardItems = document.querySelectorAll<HTMLElement>(".service-card-item");
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll(".btn-filter");
+    const serviceItems = document.querySelectorAll(".service-card-item");
 
-    filterBtns.forEach((btn) => {
+    filterButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        const selectedCategory = btn.dataset.filter;
-
-        filterBtns.forEach((b) => {
+        filterButtons.forEach((b) => {
           b.classList.remove("active");
-          b.style.backgroundColor = "var(--background)";
-          b.style.color = "var(--text)";
-          b.style.boxShadow = "none";
-          b.style.border = "1px solid var(--secondary)";
+          b.style.background = "#f8f9fa";
+          b.style.color = "#110303";
+          b.style.border = "2px solid var(--secondary)";
         });
 
         btn.classList.add("active");
-        btn.style.backgroundColor = "var(--primary)";
-        btn.style.color = "white";
-        btn.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
-        btn.style.border = "none";
+        btn.style.background = "var(--primary)";
+        btn.style.color = "#ffffff";
+        btn.style.border = "2px solid var(--primary)";
 
-        cardItems.forEach((card) => {
-          const cardCategory = card.dataset.category;
-          if (selectedCategory === "All" || cardCategory === selectedCategory) {
-            card.style.display = "block";
+        const selectedCategory = btn.getAttribute("data-filter");
+
+        serviceItems.forEach((item) => {
+          const itemCategory = item.getAttribute("data-category");
+
+          if (selectedCategory === "All" || itemCategory === selectedCategory) {
+            item.style.display = "block";
           } else {
-            card.style.display = "none";
+            item.style.display = "none";
           }
         });
       });
     });
-  }
-
-  setupFilter();
-  document.addEventListener("astro:page-load", setupFilter);
+  });
 </script>

@@ -12,7 +12,7 @@ const services = defineCollection({
     category: z.string().optional(),
     description: z.string().optional(),
     image: z.string(),
-    callLink: z.string().optional(),
+    calLink: z.string().optional(),
     bookingButtonText: z.string().default("Book Service")
   })
 });
