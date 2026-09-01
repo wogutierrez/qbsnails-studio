@@ -1,27 +1,43 @@
 ---
-// Component Frontmatter
+// Navbar Component Frontmatter
 ---
 
-<!-- COMMENT TO REMOVE THE BORDER-->
-<!-- <nav class="navbar navbar-expand-lg sticky-top" style="background: #ffffff; border-bottom: 1px solid var(--secondary);"> -->
-<nav class="navbar navbar-expand-lg sticky-top" style="background: #ffffff;">
+<!-- =========================================================================
+     OPTIONAL: SECTION BORDER
+     To enable a bottom border using your secondary brand color, swap the <nav> 
+     tag below with this line:
+     <nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom border-secondary">
+========================================================================= -->
+
+<nav class="navbar navbar-expand-lg sticky-top bg-white">
   <div class="container">
+    
+    <!-- Brand Logo -->
     <a href="/" class="navbar-brand d-flex align-items-center">
-  <img src="/Logo.png" alt="QutiQled Logo" height="50" class="me-2" />
-</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <img src="/Logo.png" alt="QutiQled Logo" height="50" class="me-2" />
+    </a>
+    
+    <!-- Mobile Hamburger Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
+    <!-- Navigation Links & Interactive Controls -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a href="/" class="nav-link fw-medium" style="color: #110303;">Home</a></li>
-        <li class="nav-item"><a href="/services" class="nav-link fw-medium" style="color: #110303;">Services</a></li>
-        <li class="nav-item"><a href="/shop" class="nav-link fw-medium" style="color: #110303;">Shop</a></li>
-        <li class="nav-item"><a href="/contact" class="nav-link fw-medium" style="color: #110303;">Contact</a></li>
-        <!-- THEME SELECTOR DROPDOWN (DISABLED)
+        <li class="nav-item"><a href="/" class="nav-link fw-bold text-dark">Home</a></li>
+        <li class="nav-item"><a href="/services" class="nav-link fw-bold text-dark">Services</a></li>
+        <li class="nav-item"><a href="/shop" class="nav-link fw-bold text-dark">Shop</a></li>
+        <li class="nav-item"><a href="/contact" class="nav-link fw-bold text-dark">Contact</a></li>
+        
+        <!-- =================================================================
+             DISABLED FEATURE: THEME SELECTOR DROPDOWN
+             Uncomment this <li> block to enable the theme picker in the navbar.
+        ================================================================== -->
+        <!-- 
         <li class="nav-item ms-2 d-flex align-items-center gap-2">
-          <label for="themeSelector" class="fw-medium small" style="color: #110303;">Theme:</label>
-          <select id="themeSelector" class="form-select form-select-sm" style="border-color: var(--secondary); width: 130px;" aria-label="Select theme">
+          <label for="themeSelector" class="fw-bold small text-dark">Theme:</label>
+          <select id="themeSelector" class="form-select form-select-sm border-secondary w-auto" aria-label="Select theme">
             <option value="default">🎨 Original</option>
             <option value="cool">❄️ Cool</option>
             <option value="warm">🔥 Warm</option>
@@ -30,21 +46,31 @@
         -->
       </ul>
     </div>
+
   </div>
 </nav>
 
+<!-- =========================================================================
+     DISABLED FEATURE: THEME SELECTOR JAVASCRIPT LOGIC
+     Uncomment this <script> block when you re-enable the theme selector above.
+     It saves theme choices to localStorage and applies data-theme to <html>.
+========================================================================= -->
 <script>
-/* THEME SELECTOR LOGIC (DISABLE)
+/* 
   document.addEventListener('DOMContentLoaded', function() {
     const themeSelector = document.getElementById('themeSelector');
     const savedTheme = localStorage.getItem('theme') || 'default';
-    themeSelector.value = savedTheme;
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    themeSelector.addEventListener('change', function() {
-      const theme = this.value;
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    });
+    
+    if (themeSelector) {
+      themeSelector.value = savedTheme;
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      themeSelector.addEventListener('change', function() {
+        const theme = this.value;
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+      });
+    }
   });
-  */
+*/
 </script>
