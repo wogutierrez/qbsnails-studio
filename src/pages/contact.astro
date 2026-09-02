@@ -4,15 +4,29 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Contact | Qutiqled Beauty Harare">
 
-  <!-- SECTION 1: HERO -->
-  <section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem;">
-    <div class="container" style="max-width: 960px;">
-      <div class="text-center mb-5">
-        <h1 class="display-4 fw-bold mb-2" style="color: var(--primary);">Get in Touch</h1>
-        <p style="color: #110303; font-size: 1.25rem;">Have a question or want to book a mobile appointment? Send us a message!</p>
+<!-- SECTION 1: HERO -->
+<section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem;">
+  <div class="container" style="max-width: 960px;">
+    <div class="text-center mb-5">
+      <h1 class="display-4 fw-bold mb-2" style="color: var(--primary);">Get in Touch</h1>
+      <p style="color: #110303; font-size: 1.25rem; max-width: 720px;" class="mx-auto">
+        Need custom nail art, group pamper packages, or have questions about our mobile travel areas across Harare? Drop us a note below!
+      </p>
+      
+      <!-- Direct Booking Encouragement Note & Centered Action Button -->
+      <div class="mt-4 d-flex flex-column align-items-center justify-content-center">
+        <p class="fw-semibold mb-3" style="color: #110303; font-size: 1.05rem; max-width: 600px;">
+          ⚡ Looking to schedule a specific treatment right away? You can view all our treatments and book instantly online!
+        </p>
+        
+        <a href="/services#treatment-menu" class="btn btn-primary-custom">
+          💅 Explore Services & Book Now
+        </a>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- SECTION 2: CONTACT FORM & INFO -->
   <section style="background: #ffffff; padding-top: 4rem; padding-bottom: 4rem; border-top: 2px solid var(--secondary); border-bottom: 2px solid var(--secondary);">
@@ -22,35 +36,57 @@ import Layout from "../layouts/Layout.astro";
         <!-- Column 1: Contact Form -->
         <div class="col-md-6">
           <div class="p-4 p-md-5 rounded-4" style="border: 2px solid var(--secondary);">
-            <form>
+            
+            <!-- CONNECTED FORMSUBMIT FORM WITH THANK YOU REDIRECT -->
+            <form action="https://formsubmit.co/info@qbsnails.com" method="POST">
+              
+              <!-- FormSubmit Configuration -->
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_subject" value="💅 New Web Contact / Booking Request - QutiQled" />
+              <!-- Redirect to your new thank-you page after submit -->
+              <input type="hidden" name="_next" value="https://qbsnails.com/thank-you" />
+
+              <!-- Full Name -->
               <div class="mb-3">
                 <label class="form-label fw-bold" style="color: #110303;">Full Name</label>
-                <input type="text" class="form-control" placeholder="Jane Doe" style="border: 2px solid var(--secondary); border-radius: 12px;">
+                <input type="text" name="Full Name" class="form-control" required placeholder="Jane Doe" style="border: 2px solid var(--secondary); border-radius: 12px;">
               </div>
+
+              <!-- Email Address -->
               <div class="mb-3">
                 <label class="form-label fw-bold" style="color: #110303;">Email Address</label>
-                <input type="email" class="form-control" placeholder="jane@example.com" style="border: 2px solid var(--secondary); border-radius: 12px;">
+                <input type="email" name="Email" class="form-control" required placeholder="jane@example.com" style="border: 2px solid var(--secondary); border-radius: 12px;">
               </div>
+
+              <!-- Interested Service -->
               <div class="mb-3">
                 <label class="form-label fw-bold" style="color: #110303;">Interested Service</label>
-                <select class="form-select" style="border: 2px solid var(--secondary); border-radius: 12px;">
+                <select name="Service" class="form-select" style="border: 2px solid var(--secondary); border-radius: 12px;">
                   <option value="">Select a service...</option>
-                  <option value="classic">Classic Manicure</option>
-                  <option value="gel">Gel Manicure</option>
-                  <option value="pedicure">Luxury Pedicure</option>
-                  <option value="other">Custom Nail Art / Other</option>
+                  <option value="Classic Manicure">Classic Manicure</option>
+                  <option value="Gel Manicure">Gel Manicure</option>
+                  <option value="Luxury Pedicure">Luxury Pedicure</option>
+                  <option value="Custom Nail Art / Other">Custom Nail Art / Other</option>
                 </select>
               </div>
+
+              <!-- Your Address -->
               <div class="mb-3">
-                <label class="form-label fw-bold" style="color: #110303;">Your Address</label>
-                <input type="text" class="form-control" placeholder="Enter your suburb or address for home service" style="border: 2px solid var(--secondary); border-radius: 12px;">
+                <label class="form-label fw-bold" style="color: #110303;">Your Address / Suburb</label>
+                <input type="text" name="Address" class="form-control" placeholder="Enter your suburb or address for home service" style="border: 2px solid var(--secondary); border-radius: 12px;">
               </div>
+
+              <!-- Message -->
               <div class="mb-3">
                 <label class="form-label fw-bold" style="color: #110303;">Message</label>
-                <textarea rows="4" class="form-control" placeholder="Tell us about your preferred date, time, or nail design ideas..." style="border: 2px solid var(--secondary); border-radius: 12px;"></textarea>
+                <textarea name="Message" rows="4" class="form-control" required placeholder="Tell us about your preferred date, time, or nail design ideas..." style="border: 2px solid var(--secondary); border-radius: 12px;"></textarea>
               </div>
-              <button type="button" class="btn w-100 fw-bold py-3 rounded-3 text-white" style="background: var(--primary);">Send Message</button>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn w-100 fw-bold py-3 rounded-3 text-white" style="background: var(--primary);">Send Message</button>
+            
             </form>
+
           </div>
         </div>
 
