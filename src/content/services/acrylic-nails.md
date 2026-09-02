@@ -1,7 +1,7 @@
 ---
 name: Full Set Acrylic Enhancements
 featured: true
-price: US10.00
+price: $10.00
 duration: 2 Hours
 badge: New
 category: Hands
