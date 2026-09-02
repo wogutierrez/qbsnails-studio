@@ -1,7 +1,7 @@
 ---
 name: Builder gel
 featured: true
-price: $15
+price: $15.00
 duration: 60min
 badge: New Addition
 category: Hands
