@@ -1,7 +1,7 @@
 ---
 name: Nail Art
 featured: true
-price: $10
+price: $10.00
 duration: 1 hour
 badge: Add-ons
 category: Art
