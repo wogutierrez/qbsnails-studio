@@ -22,35 +22,56 @@ import Layout from "../layouts/Layout.astro";
         <!-- Column 1: Contact Form -->
         <div class="col-md-6">
           <div class="p-4 p-md-5 rounded-4" style="border: 2px solid var(--secondary);">
-            <form>
+            
+            <!-- CONNECTED FORMSUBMIT FORM -->
+            <form action="https://formsubmit.co/info@qbsnails.com" method="POST">
+              
+              <!-- FormSubmit Configuration -->
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_subject" value="💅 New Web Contact / Booking Request - QutiQled" />
+              <input type="hidden" name="_next" value="https://qbsnails.com/contact" />
+
+              <!-- Full Name -->
               <div class="mb-3">
                 <label class="form-label fw-bold" style="color: #110303;">Full Name</label>
-                <input type="text" class="form-control" placeholder="Jane Doe" style="border: 2px solid var(--secondary); border-radius: 12px;">
+                <input type="text" name="Full Name" class="form-control" required placeholder="Jane Doe" style="border: 2px solid var(--secondary); border-radius: 12px;">
               </div>
+
+              <!-- Email Address -->
               <div class="mb-3">
                 <label class="form-label fw-bold" style="color: #110303;">Email Address</label>
-                <input type="email" class="form-control" placeholder="jane@example.com" style="border: 2px solid var(--secondary); border-radius: 12px;">
+                <input type="email" name="Email" class="form-control" required placeholder="jane@example.com" style="border: 2px solid var(--secondary); border-radius: 12px;">
               </div>
+
+              <!-- Interested Service -->
               <div class="mb-3">
                 <label class="form-label fw-bold" style="color: #110303;">Interested Service</label>
-                <select class="form-select" style="border: 2px solid var(--secondary); border-radius: 12px;">
+                <select name="Service" class="form-select" style="border: 2px solid var(--secondary); border-radius: 12px;">
                   <option value="">Select a service...</option>
-                  <option value="classic">Classic Manicure</option>
-                  <option value="gel">Gel Manicure</option>
-                  <option value="pedicure">Luxury Pedicure</option>
-                  <option value="other">Custom Nail Art / Other</option>
+                  <option value="Classic Manicure">Classic Manicure</option>
+                  <option value="Gel Manicure">Gel Manicure</option>
+                  <option value="Luxury Pedicure">Luxury Pedicure</option>
+                  <option value="Custom Nail Art / Other">Custom Nail Art / Other</option>
                 </select>
               </div>
+
+              <!-- Your Address -->
               <div class="mb-3">
-                <label class="form-label fw-bold" style="color: #110303;">Your Address</label>
-                <input type="text" class="form-control" placeholder="Enter your suburb or address for home service" style="border: 2px solid var(--secondary); border-radius: 12px;">
+                <label class="form-label fw-bold" style="color: #110303;">Your Address / Suburb</label>
+                <input type="text" name="Address" class="form-control" placeholder="Enter your suburb or address for home service" style="border: 2px solid var(--secondary); border-radius: 12px;">
               </div>
+
+              <!-- Message -->
               <div class="mb-3">
                 <label class="form-label fw-bold" style="color: #110303;">Message</label>
-                <textarea rows="4" class="form-control" placeholder="Tell us about your preferred date, time, or nail design ideas..." style="border: 2px solid var(--secondary); border-radius: 12px;"></textarea>
+                <textarea name="Message" rows="4" class="form-control" required placeholder="Tell us about your preferred date, time, or nail design ideas..." style="border: 2px solid var(--secondary); border-radius: 12px;"></textarea>
               </div>
-              <button type="button" class="btn w-100 fw-bold py-3 rounded-3 text-white" style="background: var(--primary);">Send Message</button>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn w-100 fw-bold py-3 rounded-3 text-white" style="background: var(--primary);">Send Message</button>
+            
             </form>
+
           </div>
         </div>
 
