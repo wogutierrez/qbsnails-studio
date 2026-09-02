@@ -23,13 +23,14 @@ import Layout from "../layouts/Layout.astro";
         <div class="col-md-6">
           <div class="p-4 p-md-5 rounded-4" style="border: 2px solid var(--secondary);">
             
-            <!-- CONNECTED FORMSUBMIT FORM -->
+            <!-- CONNECTED FORMSUBMIT FORM WITH THANK YOU REDIRECT -->
             <form action="https://formsubmit.co/info@qbsnails.com" method="POST">
               
               <!-- FormSubmit Configuration -->
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_subject" value="💅 New Web Contact / Booking Request - QutiQled" />
-              <input type="hidden" name="_next" value="https://qbsnails.com/contact" />
+              <!-- Redirect to your new thank-you page after submit -->
+              <input type="hidden" name="_next" value="https://qbsnails.com/thank-you" />
 
               <!-- Full Name -->
               <div class="mb-3">
