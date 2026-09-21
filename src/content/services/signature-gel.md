@@ -1,7 +1,7 @@
 ---
 name: Gel on Toes
 featured: true
-price: US10
+price: USD10
 duration: 60 mins
 badge: Most Popular
 category: Feet
