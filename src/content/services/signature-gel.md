@@ -1,14 +1,14 @@
 ---
-name: Tafadzwa's Signature Gel Overlay
-featured: false
-price: US45
+name: Gel on Toes
+featured: true
+price: US10
 duration: 60 mins
 badge: Most Popular
-category: Hands
-description: High-shine LED cured gel overlay designed by Tafadzwa Shiripinda for natural nail growth, structure reinforcement, and flawless 3+ week durability.
-image: /uploads/Blessima_Nails_Service_Home-1.jpg
-calLink: https://cal.com/qbsnails-jznl3d/tafadzwa-s-signature-gel-overlay
-bookingButtonText: Book Service Ready
+category: Feet
+description: This service involves removing hard callous and cuticle build up around the nail bed and shaping the toes, finish off with a high shine UV gel color of choice. This enhancement can last for up to 6 weeks.
+image: /uploads/20240909_143019_0000.png
+calLink: https://cal.com/qbsnails-jznl3d/gel-on-toes
+bookingButtonText: Book Appointment
 ---
 
 Test
