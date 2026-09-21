@@ -1,7 +1,7 @@
 ---
 name: Gel
 featured: true
-price: USD5.00
+price: USD 5.00
 duration: 45 min
 badge: Popular
 category: Hands
