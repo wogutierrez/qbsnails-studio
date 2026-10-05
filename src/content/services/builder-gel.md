@@ -1,7 +1,7 @@
 ---
 name: Stick-ons
 featured: true
-price: $8.00
+price: USD 8.00
 duration: 30min
 badge: New Addition
 category: Hands
