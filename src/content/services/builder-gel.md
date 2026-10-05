@@ -1,12 +1,12 @@
 ---
-name: Builder gel
+name: Stick-ons
 featured: true
-price: $15.00
-duration: 60min
+price: $8.00
+duration: 30min
 badge: New Addition
 category: Hands
-description: Upgrade your nail game with our premium Builder Gel services. Designed to strengthen, shape, and extend your natural nails, Builder Gel offers a lightweight, durable finish that lasts for weeks without chipping.
-image: /uploads/Builder Jell.webp
+description: A great option for a quick service. A plastic full-cover tip is glued onto the nail bed and finished with a design and gel color of your choice. A more temporary enhancement that can last for about 3-4 weeks with great care.
+image: /uploads/IMG-20260710-WA0031[1].jpg
 calLink: https://cal.com/qbsnails-jznl3d/builder-gel
 bookingButtonText: Book Service
 ---
